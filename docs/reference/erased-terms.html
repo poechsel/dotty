@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-18 -->
+<!-- This page was last generated on 2018-08-19 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12162,7 +12162,7 @@ methodWithErasedEv(evidence1)
 <p>The following example is an extended implementation of a simple state machine which can be in a state <code>On</code> or <code>Off</code>.
 The machine can change state from <code>Off</code> to <code>On</code> with <code>turnedOn</code> only if it is currently <code>Off</code>,
 conversely from <code>On</code> to <code>Off</code> with <code>turnedOff</code> only if it is currently <code>On</code>. These last constraint are
-captured with the <code>IsOff[S]</code> and <code>IsOn[S]</code> implicit evidence only exist for <code>IsOff[Off]</code> and <code>InOn[On]</code>.
+captured with the <code>IsOff[S]</code> and <code>IsOn[S]</code> implicit evidence only exist for <code>IsOff[Off]</code> and <code>IsOn[On]</code>.
 For example, not allowing calling <code>turnedOff</code> on in an <code>Off</code> state as we would require an evidence <code>IsOn[Off]</code>
 that will not be found.</p>
 <p>As the implicit evidences of <code>turnedOn</code> and <code>turnedOff</code> are not used in the bodies of those functions
@@ -12186,7 +12186,7 @@ object IsOff {
 @implicitNotFound(&quot;State is must be On&quot;)
 class IsOn[S &lt;: State]
 object IsOn {
-  // def isOn will not exist at runtime, the compiler will only require that this evidence exists at compile time
+  // erased val isOn will not exist at runtime, the compiler will only require that this evidence exists at compile time
   erased implicit val isOn: IsOn[On] = new IsOn[On]
 }
 
