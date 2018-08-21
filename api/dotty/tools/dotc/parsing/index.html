@@ -12610,7 +12610,7 @@ Wraps naked case definitions in a match as follows:
                 
                 <div id="precedence(operator)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'precedence(operator)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'precedence(operator)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12650,7 +12650,9 @@ Wraps naked case definitions in a match as follows:
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-precedence(operator)">
-                            
+                            <p>Compute the precedence of infix operator <code>operator</code> according to the SLS <a href="https://www.scala-lang.org/files/archive/spec/2.13/06-expressions.html#infix-operations">§ 6.12.3</a>.
+We implement <a href="https://docs.scala-lang.org/sips/priority-based-infix-type-precedence.html">SIP-33</a> and give type operators the same precedence as term operators.</p>
+
                         </div>
                     </div>
                 </div><!-- end member -->

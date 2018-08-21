@@ -12248,6 +12248,11 @@
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-atPrec(prec)(op)">
                             <p>Generate text using <code>op</code>, assuming a given precedence level <code>prec</code>.</p>
+<h3><a href="#atprec-vs-changeprec" id="atprec-vs-changeprec"><code>atPrec</code> vs <code>changePrec</code></a></h3>
+<p>This is to be used when changing precedence inside some sort of parentheses:
+for instance, to print T[A]<code>use</code>toText(T) ~ '[' ~ atPrec(GlobalPrec) { toText(A) } ~ ']'`.</p>
+<p>If the presence of the parentheses depends on precedence, inserting them manually is most certainly a bug.
+Use <code>changePrec</code> instead to generate them exactly when needed.</p>
 
                         </div>
                     </div>
@@ -12308,6 +12313,22 @@
                         <div class="member-body-long" id ="long-body-changePrec(prec)(op)">
                             <p>Generate text using <code>op</code>, assuming a given precedence level <code>prec</code>.
 If new level <code>prec</code> is lower than previous level, put text in parentheses.</p>
+<h3><a href="#atprec-vs-changeprec" id="atprec-vs-changeprec"><code>atPrec</code> vs <code>changePrec</code></a></h3>
+<p>To pretty-print <code>A op B</code>, you need something like
+<code>changePrec(parsing.precedence(op, isType)) { toText(a) ~ op ~ toText(b) }</code> // BUGGY
+that will insert parentheses around <code>A op B</code> if, for instance, the
+preceding operator has higher precedence.</p>
+<p>But that does not handle infix operators with left- or right- associativity.</p>
+<p>If op and op' have the same precedence and associativity,
+A op B op' C parses as (A op B) op' C if op and op' are left-associative, and as
+A op (B op' C) if they're right-associative, so we need respectively</p>
+<pre><code class="language-scala">val isType = ??? // is this a term or type operator?
+val prec = parsing.precedence(op, isType)
+// either:
+changePrec(prec) { toText(a) ~ op ~ atPrec(prec + 1) { toText(b) } } // for left-associative op and op'
+// or:
+changePrec(prec) { atPrec(prec + 1) { toText(a) } ~ op ~ toText(b) } // for right-associative op and op'
+</code></pre>
 
                         </div>
                     </div>
@@ -12342,7 +12363,10 @@ If new level <code>prec</code> is lower than previous level, put text in parenth
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-currentPrecedence">
-                            <p>The current precedence level</p>
+                            <p>The current precedence level.
+When pretty-printing arguments of operator <code>op</code>, <code>currentPrecedence</code> must equal <code>op</code>'s precedence level,
+so that pretty-printing expressions using lower-precedence operators can insert parentheses automatically
+by calling <code>changePrec</code>.</p>
 
                         </div>
                     </div>
