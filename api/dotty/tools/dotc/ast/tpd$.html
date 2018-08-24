@@ -17397,8 +17397,7 @@ an error.)</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-enclosingInlineds(ctx)">
-                            <p>All enclosing calls that are currently inlined, from innermost to outermost.
-EmptyTree calls cancel the next-enclosing non-empty call in the list</p>
+                            <p>All enclosing calls that are currently inlined, from innermost to outermost.</p>
 
                         </div>
                     </div>
@@ -17594,10 +17593,9 @@ EmptyTree calls cancel the next-enclosing non-empty call in the list</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-inlineContext(call)(ctx)">
-                            <p>For untyped trees, this is just the identity.
-For typed trees, a context derived form <code>ctx</code> that records <code>call</code> as the
-innermost enclosing call for which the inlined version is currently
-processed.</p>
+                            <p>Record an enclosing inlined call.
+EmptyTree calls (for parameters) cancel the next-enclosing call in the list instead of being added to it.
+We assume parameters are never nested inside parameters.</p>
 
                         </div>
                     </div>
