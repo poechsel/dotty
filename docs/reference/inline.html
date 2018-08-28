@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-27 -->
+<!-- This page was last generated on 2018-08-28 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <title>Transparent</title>
+        <title>Rewrite and Transparent</title>
 
         <link rel="icon" type="image/png" href="../.././images/favicon.png">
 
@@ -158,7 +158,7 @@
 </li>
 <li><a href="../.././docs/reference/trait-parameters.html">Trait Parameters</a>
 </li>
-<li><a href="../.././docs/reference/inline.html">Inlining with Transparent</a>
+<li><a href="../.././docs/reference/inline.html">Inlining by Rewriting</a>
 </li>
 <li><a href="../.././docs/reference/principled-meta-programming.html">Meta Programming</a>
 </li>
@@ -5014,7 +5014,7 @@
         </li>
     
         <li class="index-entity entity-package">
-            <h1><a class="entity-name" href="../.././api/dotty/tools/dotc/rewrite/index.html">dotty.tools.dotc.rewrite</a></h1>
+            <h1><a class="entity-name" href="../.././api/dotty/tools/dotc/rewrites/index.html">dotty.tools.dotc.rewrites</a></h1>
             <ul class="package-entities">
                 <div id="cover-block"></div>
             
@@ -5026,11 +5026,11 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../.././api/dotty/tools/dotc/rewrite/Rewrites$.html">O</a>
+                        <a class="letter-anchor object" href="../.././api/dotty/tools/dotc/rewrites/Rewrites$.html">O</a>
                         
-                        <a class="letter-anchor class" href="../.././api/dotty/tools/dotc/rewrite/Rewrites.html">C</a>
+                        <a class="letter-anchor class" href="../.././api/dotty/tools/dotc/rewrites/Rewrites.html">C</a>
                     </div>
-                    <a class="entity-name" href="../.././api/dotty/tools/dotc/rewrite/Rewrites.html">Rewrites</a>
+                    <a class="entity-name" href="../.././api/dotty/tools/dotc/rewrites/Rewrites.html">Rewrites</a>
                 </li>
 
                 
@@ -7971,9 +7971,9 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">O</a>
+                        <a class="letter-anchor object" href="../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">O</a>
                     </div>
-                    <a class="entity-name" href="../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">PrepareTransparent</a>
+                    <a class="entity-name" href="../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">PrepareInlineable</a>
                 </li>
 
                 
@@ -12112,13 +12112,13 @@
 
 
     <div id="content-body" class="doc-page-body">
-        <h1 id="doc-page-title">Transparent</h1>
+        <h1 id="doc-page-title">Rewrite and Transparent</h1>
         <a id="edit-on-github" href="https://github.com/lampepfl/dotty/edit/master/docs/docs/reference/inline.md">
             Edit this page on GitHub
         </a>
         <hr/>
         <div id="doc-page-container">
-            <p><code>transparent</code> is a new modifier that guarantees that a definition will be
+            <p><code>rewrite</code> is a new modifier that guarantees that a definition will be
 inlined at the point of use. Example:</p>
 <pre><code>object Config {
   transparent val logging = false
@@ -12128,7 +12128,7 @@ object Logger {
 
   private var indent = 0
 
-  transparent def log[T](msg: =&gt; String)(op: =&gt; T): T =
+  rewrite def log[T](msg: =&gt; String)(op: =&gt; T): T =
     if (Config.logging) {
       println(s&quot;${&quot;  &quot; * indent}start $msg&quot;)
       indent += 1
@@ -12140,14 +12140,14 @@ object Logger {
     else op
 }
 </code></pre>
-<p>The <code>Config</code> object contains a definition of an <code>transparent</code> value
+<p>The <code>Config</code> object contains a definition of a <code>transparent</code> value
 <code>logging</code>. This means that <code>logging</code> is treated as a constant value,
 equivalent to its right-hand side <code>false</code>. The right-hand side of such
-an transparent val must itself be a <a href="#the-definition-of-constant-expression">constant
+a transparent val must itself be a <a href="#the-definition-of-constant-expression">constant
 expression</a>. Used in this way,
 <code>transparent</code> is equivalent to Java and Scala 2's <code>final</code>. <code>final</code> meaning
 &quot;constant&quot; is still supported in Dotty, but will be phased out.</p>
-<p>The <code>Logger</code> object contains a definition of an <code>transparent</code> method <code>log</code>.
+<p>The <code>Logger</code> object contains a definition of a <code>rewrite</code> method <code>log</code>.
 This method will always be inlined at the point of call.</p>
 <p>In the inlined code, an if-then-else with a constant condition will be
 rewritten to its then- or else-part. Here's an example:</p>
@@ -12167,25 +12167,25 @@ rewritten to its then- or else-part. Here's an example:</p>
 </code></pre>
 <p>}</p>
 <p>Note that the arguments corresponding to the parameters <code>msg</code> and <code>op</code>
-of the transparent method <code>log</code> are defined before the inlined body (which
+of the rewrite method <code>log</code> are defined before the inlined body (which
 is in this case simply <code>op</code>). By-name parameters of the inlined method
 correspond to <code>def</code> bindings whereas by-value parameters correspond to
 <code>val</code> bindings. So if <code>log</code> was defined like this:</p>
-<pre><code>transparent def log[T](msg: String)(op: =&gt; T): T = ...
+<pre><code>rewrite def log[T](msg: String)(op: =&gt; T): T = ...
 </code></pre>
 <p>we'd get</p>
 <pre><code>val msg = s&quot;factorial($n)&quot;
 </code></pre>
-<p>instead. This behavior is designed so that calling a transparent method is
+<p>instead. This behavior is designed so that calling a rewrite method is
 semantically the same as calling a normal method: By-value arguments
 are evaluated before the call whereas by-name arguments are evaluated
 each time they are referenced. As a consequence, it is often
-preferable to make arguments of transparent methods by-name in order to
+preferable to make arguments of rewrite methods by-name in order to
 avoid unnecessary evaluations.</p>
 <p>For instance, here is how we can define a zero-overhead <code>foreach</code> method
 that translates into a straightforward while loop without any indirection or
 overhead:</p>
-<pre><code>transparent def foreach(op: =&gt; Int =&gt; Unit): Unit = {
+<pre><code>rewrite def foreach(op: =&gt; Int =&gt; Unit): Unit = {
   var i = from
   while (i &lt; end) {
     op(i)
@@ -12196,8 +12196,8 @@ overhead:</p>
 <p>By contrast, if <code>op</code> is a call-by-value parameter, it would be evaluated separately as a closure.</p>
 <p>Transparent methods can be recursive. For instance, when called with a constant
 exponent <code>n</code>, the following method for <code>power</code> will be implemented by
-straight transparent code without any loop or recursion.</p>
-<pre><code>transparent def power(x: Double, n: Int): Double =
+straight inline code without any loop or recursion.</p>
+<pre><code>rewrite def power(x: Double, n: Int): Double =
   if (n == 0) 1.0
   else if (n == 1) x
   else {
@@ -12214,16 +12214,16 @@ straight transparent code without any loop or recursion.</p>
     //    val y3 = y2 * x  // ^5
     //    y3 * y3          // ^10
 </code></pre>
-<p>Parameters of transparent methods can themselves be marked <code>transparent</code>. This means
+<p>Parameters of rewrite methods can be marked <code>transparent</code>. This means
 that actual arguments to these parameters must be constant expressions.</p>
 <h3><a href="#relationship-to-inline" id="relationship-to-inline">Relationship to <code>@inline</code>.</a></h3>
 <p>Scala also defines a <code>@inline</code> annotation which is used as a hint
-for the backend to inline. The <code>transparent</code> modifier is a more powerful
+for the backend to inline. The <code>rewrite</code> modifier is a more powerful
 option: Expansion is guaranteed instead of best effort,
 it happens in the frontend instead of in the backend, and it also applies
 to recursive methods.</p>
 <p>To cross compile between both Dotty and Scalac, we introduce a new <code>@forceInline</code>
-annotation which is equivalent to the new <code>transparent</code> modifier. Note that
+annotation which is equivalent to the new <code>rewrite</code> modifier. Note that
 Scala 2 ignores the <code>@forceInline</code> annotation, so one must use both
 annotations to guarantee inlining for Dotty and at the same time hint inlining
 for Scala 2 (i.e. <code>@forceInline @inline</code>).</p>
@@ -12234,8 +12234,8 @@ must be constant expressions in the sense defined by the <a href="https://www.sc
 including &quot;platform-specific&quot; extensions such as constant folding of
 pure numeric computations.</p>
 <h3><a href="#reference" id="reference">Reference</a></h3>
-<p>For more info, see <a href="https://github.com/lampepfl/dotty/pull/4768">PR #4768</a>, which explains how
-transparent methods can be used for typelevel programming and code specialization.</p>
+<p>For more info, see <a href="https://github.com/lampepfl/dotty/pull/4768">PR #4927</a>, which explains how
+rewrite methods can be used for typelevel programming and code specialization.</p>
 
         </div>
     </div><!-- end content-body -->

@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-27 -->
+<!-- This page was last generated on 2018-08-28 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -158,7 +158,7 @@
 </li>
 <li><a href="../../../../../.././docs/reference/trait-parameters.html">Trait Parameters</a>
 </li>
-<li><a href="../../../../../.././docs/reference/inline.html">Inlining with Transparent</a>
+<li><a href="../../../../../.././docs/reference/inline.html">Inlining by Rewriting</a>
 </li>
 <li><a href="../../../../../.././docs/reference/principled-meta-programming.html">Meta Programming</a>
 </li>
@@ -5014,7 +5014,7 @@
         </li>
     
         <li class="index-entity entity-package">
-            <h1><a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrite/index.html">dotty.tools.dotc.rewrite</a></h1>
+            <h1><a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrites/index.html">dotty.tools.dotc.rewrites</a></h1>
             <ul class="package-entities">
                 <div id="cover-block"></div>
             
@@ -5026,11 +5026,11 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites$.html">O</a>
                         
-                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">C</a>
+                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">C</a>
                     </div>
-                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">Rewrites</a>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">Rewrites</a>
                 </li>
 
                 
@@ -7971,9 +7971,9 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">O</a>
                     </div>
-                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">PrepareTransparent</a>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">PrepareInlineable</a>
                 </li>
 
                 
@@ -12372,7 +12372,7 @@ FunParams         ::=  Bindings
 |  Expr
 BlockResult       ::=  [FunArgMods] FunParams =&gt;' Block
 |  Expr1
-Expr1             ::=  <code>if'</code>(' Expr <code>)' {nl} Expr [[semi] else Expr] |</code>if' Expr <code>then' Expr [[semi] else Expr] |</code>while' <code>(' Expr</code>)' {nl} Expr
+Expr1             ::=  [‘rewrite’] <code>if'</code>(' Expr <code>)' {nl} Expr [[semi] else Expr] | [‘rewrite’]</code>if' Expr <code>then' Expr [[semi] else Expr] |</code>while' <code>(' Expr</code>)' {nl} Expr
 |  <code>while' Expr</code>do' Expr
 |  <code>do' Expr [semi]</code>while' Expr
 |  <code>try' Expr Catches [</code>finally' Expr]
@@ -12380,7 +12380,7 @@ Expr1             ::=  <code>if'</code>(' Expr <code>)' {nl} Expr [[semi] else E
 |  <code>throw' Expr |</code>return' [Expr]
 |  ForExpr
 |  [SimpleExpr <code>.'] id</code>=' Expr
-|  SimpleExpr1 ArgumentExprs <code>=' Expr | PostfixExpr [Ascription] | PostfixExpr</code>match' <code>{' CaseClauses</code>}'
+|  SimpleExpr1 ArgumentExprs <code>=' Expr | PostfixExpr [Ascription] | [‘rewrite’] PostfixExpr</code>match' <code>{' CaseClauses</code>}'
 |  <code>implicit'</code>match' <code>{' ImplicitCaseClauses</code>}'
 Bindings          ::= <code>(' [Binding {</code>,' Binding}] <code>)' Binding ::= (id |</code>_') [<code>:' Type] Ascription ::=</code>:' CompoundType
 | <code>:' Annotation {Annotation} |</code>:' <code>_'</code>*'</p>
@@ -17242,6 +17242,61 @@ If it is, returns the [[Tree]] which immediately represents the non-value type.<
                     </div>
                 </div><!-- end member -->
                 
+                <div id="ifExpr(start,mkIf)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'ifExpr(start,mkIf)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                ifExpr
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        start:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/parsing/Scanners$.html#Offset">Offset</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        mkIf:
+                                    </span>
+                                    <span>(</span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a><span>, </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a><span>, </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a><span>) =&gt; </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#If">If</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#If">If</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-ifExpr(start,mkIf)">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="implicitClosure(start,location,implicitMods)" class="member ">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'implicitClosure(start,location,implicitMods)');">[+]</span>
@@ -18223,40 +18278,6 @@ respecting rules of associativity and precedence.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="isCaseIntro" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'isCaseIntro');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                isCaseIntro
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-isCaseIntro">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="isDclIntro" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'isDclIntro');">[+]</span>
@@ -19078,10 +19099,7 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                                     <span class="no-left">
                                         tokens:
                                     </span>
-                                    <repeated>
-<span class="no-left no-right">[</span>
-<a href="../../../../../.././api/dotty/tools/dotc/parsing/TokensCommon.html#Token">Token</a>
-<span class="no-left">]</span>
+                                    BitSet
                                     
                                 
                             <span class="no-left">)</span>
@@ -19225,9 +19243,9 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                     </div>
                 </div><!-- end member -->
                 
-                <div id="matchExpr(t)" class="member ">
+                <div id="matchExpr(t,start,mkMatch)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'matchExpr(t)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'matchExpr(t,start,mkMatch)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -19253,6 +19271,25 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                                     </span>
                                     <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
                                     
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        start:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/parsing/Scanners$.html#Offset">Offset</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        mkMatch:
+                                    </span>
+                                    <span>(</span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a><span>, </span>List
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#CaseDef">CaseDef</a>
+<span class="no-left">]</span><span>) =&gt; </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Match">Match</a>
+                                    
                                 
                             <span class="no-left">)</span>
                             
@@ -19269,8 +19306,9 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-matchExpr(t)">
-                            
+                        <div class="member-body-long" id ="long-body-matchExpr(t,start,mkMatch)">
+                            <p><code>match' { CaseClauses }</code>match' { ImplicitCaseClauses }</p>
+
                         </div>
                     </div>
                 </div><!-- end member -->

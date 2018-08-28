@@ -19,31 +19,31 @@ of a black art. Dotty has greatly improved error dignostics for recursive implic
 but the fundamental problem remains.</li>
 </ul>
 <h2><a href="#the-core-idea" id="the-core-idea">The Core Idea</a></h2>
-<p>A simple principle underlies the new design: Typelevel programming in Scala 3 means reducing terms and taking their types afterwards. Specifically, if <code>f</code> is a <em>transparent</em> function applied to some arguments <code>es</code> then the type of the application <code>f(es)</code> is the type of the term to which <code>f(es)</code> reduces. Since reduction can specialize types, that type can be more specific than <code>f</code>'s declared result type. Type-level programming in Scala 3 is thus a form of partial evaluation or <a href="http://www.cse.chalmers.se/~rjmh/Papers/typed-pe.html">type specialization</a>.</p>
-<h2><a href="#transparent-functions" id="transparent-functions">Transparent Functions</a></h2>
+<p>A simple principle underlies the new design: Typelevel programming in Scala 3 means reducing terms and taking their types afterwards. Specifically, if <code>f</code> is a <em>rewrite</em> method applied to some arguments <code>es</code> then the type of the application <code>f(es)</code> is the type of the term to which <code>f(es)</code> reduces. Since reduction can specialize types, that type can be more specific than <code>f</code>'s declared result type. Type-level programming in Scala 3 is thus a form of partial evaluation or <a href="http://www.cse.chalmers.se/~rjmh/Papers/typed-pe.html">type specialization</a>.</p>
+<h2><a href="#rewrite-methods" id="rewrite-methods">Rewrite Methods</a></h2>
 <p>Consider the standard definition of typelevel Peano numbers:</p>
 <pre><code class="language-scala">trait Nat
 case object Z extends Nat
 case class S[N &lt;: Nat](n: N) extends Nat
 </code></pre>
 <p>A function that maps non-negative integers to Peano numbers can be defined as follows:</p>
-<pre><code class="language-scala">transparent def toNat(n: Int): Nat = n match {
+<pre><code class="language-scala">rewrite def toNat(n: Int): Nat = rewrite n match {
   case 0 =&gt; Z
   case n if n &gt; 0 =&gt; S(toNat(n - 1))
 }
 </code></pre>
-<p>Without the <code>transparent</code> modifier, an application of <code>toNat(3)</code> would have type <code>Nat</code>, as this
-is the method's declared return type. But with <code>transparent</code>, the call to <code>toNat(3)</code> gets reduced <em>at compile time</em> as follows:</p>
+<p>Without the <code>rewrite</code> modifier, an application of <code>toNat(3)</code> would have type <code>Nat</code>, as this
+is the method's declared return type. But with <code>rewrite</code>, the call to <code>toNat(3)</code> gets reduced <em>at compile time</em> as follows:</p>
 <pre><code>    toNat(3)
 -&gt;
-    3 match {
+    rewrite 3 match {
       case 0 =&gt; Z
       case n if n &gt; 0 =&gt; S(toNat(n - 1))
     }
 -&gt;
     S(toNat(2))
 -&gt;
-    S(2 match {
+    S(rewrite 2 match {
         case 0 =&gt; Z
         case n if n &gt; 0 =&gt; S(toNat(n - 1))
       })
@@ -52,7 +52,7 @@ is the method's declared return type. But with <code>transparent</code>, the cal
 -&gt; -&gt;
     S(S(S(toNat(0))))
 -&gt;
-    S(S(S(0 match {
+    S(S(S(rewrite 0 match {
             case 0 =&gt; Z
             case n if n &gt; 0 =&gt; S(toNat(n - 1))
           })))
@@ -60,25 +60,17 @@ is the method's declared return type. But with <code>transparent</code>, the cal
     S(S(S(Z)))
 </code></pre>
 <p>The type of <code>toNat(3)</code> is the type of its result, <code>S[S[S[Z]]]</code>, which is a subtype of the declared result type <code>Nat</code>.</p>
-<p>A <code>transparent</code> modifier on a method definition indicates that any application of the defined method outside a transparent method definition will be expanded to its right hand side, where formal parameters get bound to actual arguments. The right side will be further simplified using a set of rewrite rules given below.</p>
-<p>Top-level <code>match</code> expressions in transparent methods are treated specially. An expression is considered top-level if it appears</p>
-<ul>
-<li>as the right hand side of the <code>transparent</code> function, or</li>
-<li>as the final expression of a top-level block, or</li>
-<li>as a branch of a top-level match expression.</li>
-</ul>
-<p>A top-level match expression in a transparent <em>must</em> be rewritten at compile-time. That is, if there is enough static information to unambiguously pick one of its branches, the expression
-is rewritten to that branch. Otherwise a compile-time error is signalled indicating that the match is ambiguous. If one wants to have a transparent function expand to a match expression that cannot be evaluated statically in this fashion, one can always enclose the expression in a</p>
-<pre><code class="language-scala">locally { ... }
-</code></pre>
-<p>block, which de-classifies it as a top-level expression. (<code>locally</code> is a function in <code>Predef</code> which simply returns its argument.)</p>
-<p>As another example, consider the following two functions over tuples:</p>
-<pre><code class="language-scala">transparent def concat(xs: Tuple, ys: Tuple): Tuple = xs match {
+<p>A <code>rewrite</code> modifier on a method definition indicates that any application of the defined method outside a rewrite method definition will be expanded to its right hand side, where formal parameters get bound to actual arguments. The right side will be further simplified using a set of rewrite rules given below.</p>
+<h2><a href="#rewrite-matches" id="rewrite-matches">Rewrite Matches</a></h2>
+<p>A match expression in the body of a rewrite meyhod may be prefixed itself with the <code>rewrite</code> modifier. Such a rewrite match <em>must</em> be rewritten at compile-time. That is, if there is enough static information to unambiguously pick one of its branches, the expression
+is rewritten to that branch. Otherwise a compile-time error is signalled indicating that the match cannot be reduced.</p>
+<p>As examples, consider the following two functions over tuples:</p>
+<pre><code class="language-scala">rewrite def concat(xs: Tuple, ys: Tuple): Tuple = rewrite xs match {
   case ()       =&gt; ys
   case (x, xs1) =&gt; (x, concat(xs1, ys))
 }
 
-transparent def nth(xs: Tuple, n: Int): Any = xs match {
+rewrite def nth(xs: Tuple, n: Int): Any = rewrite xs match {
   case (x, _)   if n == 0 =&gt; x
   case (_, xs1) if n &gt; 0  =&gt; nth(xs1, n - 1)
 }
@@ -100,19 +92,19 @@ nth(as, 2)     : Nothing
 nth(as, -1)    : Nothing
 nth(concat(as, bs), 3) : List[Int]
 </code></pre>
-<p>In each of these cases, the result is obtained by expanding the transparent function(s), simplifying (reducing) their right hand sides, and taking the type of the result. As an example, the applications <code>concat(as, bs)</code> and <code>nth(as, 1)</code> would produce expressions like these:</p>
+<p>In each of these cases, the result is obtained by expanding the rewrite method(s), simplifying (reducing) their right hand sides, and taking the type of the result. As an example, the applications <code>concat(as, bs)</code> and <code>nth(as, 1)</code> would produce expressions like these:</p>
 <pre><code class="language-scala">concat(as, bs)  --&gt;  (as._1, { val a$1 = as._2; (a$1._1, bs) }
 nth(as, 1)      --&gt;  { val a$1 = as._2; a$1._1 }
 </code></pre>
 <p>If tuples get large, so do the expansions. For instance, the size of the expansion of a valid selection <code>nth(xs, n)</code> is proportional to <code>n</code>. We will show later a scheme to avoid this code blowup using <code>erased</code> values.</p>
-<p>The following expressions would all give compile-time errors since a toplevel <code>match</code> could not be reduced:</p>
+<p>The following expressions would all give compile-time errors since a <code>rewrite</code> <code>match</code> could not be reduced:</p>
 <pre><code class="language-scala">concat(tp, bs)
 nth(tp, 0)
 nth(as, 2)
 nth(as -1)
 </code></pre>
-<p>It's possible to add more cases to a toplevel match, thereby moving an error from compile-time to runtime. For instance, here is a version of <code>nth</code> that throws a runtime error in case the index is out of bounds:</p>
-<pre><code class="language-scala">transparent def nthDynamic(xs: Tuple, n: Int): Any = xs match {
+<p>It's possible to add more cases to a rewrite match, thereby moving an error from compile-time to runtime. For instance, here is a version of <code>nth</code> that throws a runtime error in case the index is out of bounds:</p>
+<pre><code class="language-scala">rewrite def nthDynamic(xs: Tuple, n: Int): Any = rewrite xs match {
   case (x, _)   if n == 0 =&gt; x
   case (_, xs1) =&gt; nthDynamic(xs1, n - 1)
   case () =&gt; throw new IndexOutOfBoundsException
@@ -134,12 +126,39 @@ nth(as -1)
         throw new IndexOutOfBoundsException
 </code></pre>
 <p>So the end result of the expansion is the expression <code>throw new IndexOutOfBoundsException</code>, which has type <code>Nothing</code>. It is important to note that programs are treated as <em>data</em> in this process, so the exception will not be thrown at compile time, but only if the program is run after it compiles without errors.</p>
+<h2><a href="#rewrite-conditionals" id="rewrite-conditionals">Rewrite Conditionals</a></h2>
+<p>Like matches, if-then-else expressions can also be prefixed with the <code>rewrite</code> modifier. Such rewrite conditional must have conditions that with a compile-time boolean result. The conditional then recuces to one of its branches depending on whether the condition is knwon to be <code>true</code> or to be <code>false</code>.</p>
+<p>For instance, here is an alternative version of <code>toNat</code> formulated with a conditional instead of a <code>match</code>.</p>
+<pre><code class="language-scala">rewrite def toNat(n: Int): Nat =
+  rewrite if n == 0 then Z
+  else S(toNat(n - 1))
+}
+</code></pre>
+<h2><a href="#diagnostics" id="diagnostics">Diagnostics</a></h2>
+<p>The last definition of <code>toNat</code> has a problem. When applied to a negative argument such as <code>-1</code> it would lead to an infinitely recurring expansion</p>
+<pre><code>   toNat(-1) --&gt; toNat(-2) --&gt; toNat(-3) --&gt; ...
+</code></pre>
+<p>This will give a compile-time error indicating that the maximal number of allowed expansions is exceeded. The previous <code>match</code> based version of <code>toNat</code> did not have this problem since we could guard each case with the correct precondition as a guard. So with the first version,<code>toNat(-1)</code> would have produced an irreducible match error instead of an infinite expansion error. This is better but ideally we'd like to see a more customized error message instad, such as</p>
+<pre><code>    Illegal argument for `toNat`: -1 is negative
+</code></pre>
+<p>To implement this, there is a predefined method</p>
+<pre><code class="language-scala">rewrite def error(msg: String): Unit
+</code></pre>
+<p>in the <code>typelevel</code> package. An application of this method will always give a compile-time error with the given string argument as error message. Using this method, <code>toNat</code> can be
+formulated as follows:</p>
+<pre><code class="language-scala">import scala.typelevel.error
+rewrite def toNat(n: Int): Nat =
+  rewrite
+    if n == 0 then Z
+    else if n &gt; 0 then S(toNat(n - 1))
+    else error(&quot;Illegal argument for `toNat`: $n is negative&quot;)
+}
+</code></pre>
 <h2><a href="#rewrite-rules" id="rewrite-rules">Rewrite Rules</a></h2>
 <p>The following rewrite rules are performed when simplifying inlined bodies:</p>
 <ul>
 <li>
-<p><strong>Pattern matching:</strong> Pattern matches in toplevel match expressions are evaluated and the case with the first
-pattern that is statically known to match is chosen. A pattern match <code>E match { Case_1 ... Case_n }</code> is translated as follows:</p>
+<p><strong>Pattern matching:</strong> Pattern matches in <code>rewrite match</code> expressions are evaluated and the case with the first pattern that is statically known to match is chosen. A pattern match <code>rewrite E match { Case_1 ... Case_n }</code> is translated as follows:</p>
 <ul>
 <li>We first create a binding <code>val $scrutinee_n = E</code> for the scrutinee of the match.</li>
 <li>
@@ -162,8 +181,8 @@ the guard <code>E</code> is statically known to be <code>true</code>.</li>
 </ul>
 </li>
 </ul>
-<p>The first case <code>case P =&gt; E</code> with a matching pattern <code>P</code> is chosen. The match is then rewritten
-to <code>{ Bs; E }</code> where <code>Bs</code> are the bindings generated by the match of <code>P</code>.</p>
+<p>The first case <code>case P =&gt; E</code> with a matching pattern <code>P</code> is chosen. The match is then rewritten to <code>{ Bs; E }</code> where <code>Bs</code> are the bindings generated by the match of <code>P</code>.</p>
+<p>Note that matches are only evaluated if they are marked <code>rewrite</code>.</p>
 </li>
 <li>
 <p><strong>Reduction of projections:</strong> An expression <code>E_0(E_1, ..., E_i, ...E_n).f_i</code>, where</p>
@@ -210,21 +229,43 @@ expansion is dropped and the reference to <code>x</code> is replaced by <code>E<
 can be dropped.</p>
 </li>
 </ul>
-<h2><a href="#restrictions-for-transparent-and-typelevel-functions" id="restrictions-for-transparent-and-typelevel-functions">Restrictions for Transparent and Typelevel Functions</a></h2>
-<p>Transparent methods are effectively final; they may not be overwritten.</p>
-<p>If a transparent
-method has a toplevel match expression or a toplevel splice <code>~</code> on its right-hand side,
-it is classified as a typelevel method that can <em>only</em> be executed at compile time. For typelevel methods two more restrictions apply:</p>
+<p>All rules are sound wrt to the language semantics. However, it should be noted that rewriting a <code>rewrite match</code> at compile time does not guarantee to pick the same case as every execution at runtime of the same match without the <code>rewrite</code>. Here is an example:</p>
+<pre><code class="language-scala">trait A
+trait B
+
+rewrite def f(x: Any) = rewrite x match {
+  case _: A =&gt; &quot;A&quot;
+  case _: B =&gt; &quot;B&quot;
+}
+def g(x: Any) = x match {
+  case _: A =&gt; &quot;A&quot;
+  case _: B =&gt; &quot;B&quot;
+}
+
+val b1: B = new B {}
+val b2: B = new A with B {}
+
+f(b1)  // rewrites to &quot;B&quot;
+g(b1)  // evaluates to &quot;B&quot;
+f(b2)  // rewrites to &quot;B&quot;
+g(b2)  // evaluates to &quot;A&quot;
+</code></pre>
+<p>Since both applications of <code>f</code> are passed arguments with static type <code>B</code>, the second case <code>&quot;B&quot;</code> is chosen in each case. By contrast, the application <code>g(b2)</code> yields <code>&quot;A&quot;</code>, since
+even though the static type of <code>b2</code> is <code>B</code>, its runtime value is of type <code>A &amp; B</code>, which
+matches the first case.</p>
+<h2><a href="#restrictions-for-rewrite-methods" id="restrictions-for-rewrite-methods">Restrictions for Rewrite Methods</a></h2>
+<p>Rewrite methods are effectively final; they may not be overwritten. Rewrite methods
+must satisfy two more restrictions, which ensure that no code needs to be generated for them.</p>
 <ol>
 <li>They must be always fully applied.</li>
 <li>They may override other methods only if one of the overridden methods is concrete.</li>
 </ol>
-<p>The right hand side of a typelevel method is never invoked by dynamic dispatch. As an example consider a situation like the following:</p>
+<p>The right hand side of a rewrite method is never invoked by dynamic dispatch. As an example consider a situation like the following:</p>
 <pre><code class="language-scala">class Iterable[T] {
   def foreach(f: T =&gt; Unit): Unit = ...
 }
 class List[T] extends Iterable[T] {
-  override transparent def foreach(f: T =&gt; Unit): Unit = ...
+  override rewrite def foreach(f: T =&gt; Unit): Unit = ...
 }
 val xs: Iterable[T] = ...
 val ys: List[T] = ...
@@ -233,17 +274,16 @@ xs.foreach(f)  // calls Iterable's foreach
 ys.foreach(f)  // expands to the body of List's foreach
 zs.foreach(f)  // calls Iterable's foreach
 </code></pre>
-<p>It follows that an overriding typelevel method should implement exactly the same semantics as the
-method it overrides (but possibly more efficiently).</p>
+<p>It follows that an overriding rewrite method should implement exactly the same semantics as the method it overrides (but possibly more efficiently).</p>
 <h2><a href="#matching-on-types" id="matching-on-types">Matching on Types</a></h2>
-<p>We have seen so far transparent functions that take terms (tuples and integers) as parameters. What if we want to base case distinctions on types instead? For instance, one would like to be able to write a function <code>defaultValue</code>, that, given a type <code>T</code>
+<p>We have seen so far rewrite methods that take terms (tuples and integers) as parameters. What if we want to base case distinctions on types instead? For instance, one would like to be able to write a function <code>defaultValue</code>, that, given a type <code>T</code>
 returns optionally the default value of <code>T</code>, if it exists. In fact, we can already express
-this using ordinary match expressions and a simple helper function, <code>scala.typelevel.erasedValue</code>, which is defined as follows:</p>
+this using rewrite match expressions and a simple helper function, <code>scala.typelevel.erasedValue</code>, which is defined as follows:</p>
 <pre><code class="language-scala">erased def erasedValue[T]: T = ???
 </code></pre>
 <p>The <code>erasedValue</code> function <em>pretends</em> to return a value of its type argument <code>T</code>. In fact, it would always raise a <code>NotImplementedError</code> exception when called. But the function can in fact never be called, since it is declared <code>erased</code>, so can be only used a compile-time during type checking.</p>
 <p>Using <code>erasedValue</code>, we can then define <code>defaultValue</code> as follows:</p>
-<pre><code class="language-scala">transparent def defaultValue[T] = erasedValue[T] match {
+<pre><code class="language-scala">rewrite def defaultValue[T] = rewrite erasedValue[T] match {
   case _: Byte =&gt; Some(0: Byte)
   case _: Char =&gt; Some(0: Char)
   case _: Short =&gt; Some(0: Short)
@@ -264,7 +304,7 @@ defaultValue[String | Null] = Some(null)
 defaultValue[AnyVal] = None
 </code></pre>
 <p>As another example, consider the type-level inverse of <code>toNat</code>: given a <em>type</em> representing a Peano number, return the integer <em>value</em> corresponding to it. Here's how this can be defined:</p>
-<pre><code class="language-scala">transparent def toInt[N &lt;: Nat]: Int = erasedValue[N] match {
+<pre><code class="language-scala">rewrite def toInt[N &lt;: Nat]: Int = rewrite erasedValue[N] match {
   case _: Z =&gt; 0
   case _: S[n] =&gt; toInt[n] + 1
 }
@@ -275,34 +315,34 @@ to base oneself on the helper class <code>scala.typelevel.Typed</code>, defined 
 <pre><code class="language-scala">class Typed[T](val value: T) { type Type = T }
 </code></pre>
 <p>Here is a version of <code>concat</code> that computes at the same time a result and its type:</p>
-<pre><code class="language-scala">transparent def concatTyped(xs: Tuple, ys: Tuple): Typed[_ &lt;: Tuple] = xs match {
+<pre><code class="language-scala">rewrite def concatTyped(xs: Tuple, ys: Tuple): Typed[_ &lt;: Tuple] = rewrite xs match {
   case ()       =&gt; Typed(ys)
   case (x, xs1) =&gt; Typed((x, concatTyped(xs1, ys).value))
 }
 </code></pre>
 <h2><a href="#avoiding-code-explosion" id="avoiding-code-explosion">Avoiding Code Explosion</a></h2>
-<p>Recursive transparent functions implement a form of loop unrolling through inlining. This can lead to very large generated expressions. The code explosion can be avoided by calling typed versions of the transparent functions to define erased values, of which  just the typed part is used afterwards. Here is how this can be done for <code>concat</code>:</p>
+<p>Recursive rewrite methods implement a form of loop unrolling through inlining. This can lead to very large generated expressions. The code explosion can be avoided by calling typed versions of the rewrite methods to define erased values, of which  just the typed part is used afterwards. Here is how this can be done for <code>concat</code>:</p>
 <pre><code class="language-scala">def concatImpl(xs: Tuple, ys: Tuple): Tuple = xs match {
   case ()       =&gt; ys
   case (x, xs1) =&gt; (x, concatImpl(xs1, ys))
 }
 
-transparent def concat(xs: Tuple, ys: Tuple): Tuple = {
-  erased val r = concatTyped(xs, ys)
-  concatImpl(xs, ys).asInstanceOf[r.Type]
+rewrite def concat(xs: Tuple, ys: Tuple): Tuple = {
+  erased val resTpe = concatTyped(xs, ys)
+  concatImpl(xs, ys).asInstanceOf[resTpe.Type]
 }
 </code></pre>
-<p>The transparent <code>concat</code> method makes use of two helper functions, <code>concatTyped</code> (described in the last section) and <code>concatImpl</code>. <code>concatTyped</code> is called as the right hand side of an <code>erased</code> value <code>r</code>. Since <code>r</code> is <code>erased</code>, no code is generated for its definition.
-<code>concatImpl</code> is a regular, non-transparent function that implements <code>concat</code> on generic tuples. It is not inlineable, and its result type is always <code>Tuple</code>. The actual code for <code>concat</code> calls <code>concatImpl</code> and casts its result to type <code>r.Type</code>, the computed result type of the concatenation. This gives the best of both worlds: Compact code and expressive types.</p>
-<p>One might criticize that this scheme involves code duplication. In the example above, the recursive <code>concat</code> algorithm had to be implemented twice, once as a regular function, the other time as a transparent function. However, in practice it is is quite likely that the regular function would use optimized data representatons and algorithms that do not lend themselves easily to a typelevel interpretation. In these cases a dual implementation is required anyway.</p>
+<p>The <code>concat</code> rewrite method makes use of two helper functions, <code>concatTyped</code> (described in the last section) and <code>concatImpl</code>. <code>concatTyped</code> is called as the right hand side of an <code>erased</code> value <code>resTpe</code>. Since <code>resTpe</code> is <code>erased</code>, no code is generated for its definition.
+<code>concatImpl</code> is a regular, non-rewrite method that implements <code>concat</code> on generic tuples. It is not inlineable, and its result type is always <code>Tuple</code>. The actual code for <code>concat</code> calls <code>concatImpl</code> and casts its result to type <code>resTpe.Type</code>, the computed result type of the concatenation. This gives the best of both worlds: Compact code and expressive types.</p>
+<p>One might criticize that this scheme involves code duplication. In the example above, the recursive <code>concat</code> algorithm had to be implemented twice, once as a regular method, the other time as a rewrite method. However, in practice it is is quite likely that the regular function would use optimized data representatons and algorithms that do not lend themselves easily to a typelevel interpretation. In these cases a dual implementation is required anyway.</p>
 <h2><a href="#code-specialization" id="code-specialization">Code Specialization</a></h2>
-<p>Transparent functions are a convenient means to achieve code specialization. As an example, consider implementing a math library that implements (among others) a <code>dotProduct</code> method. Here is a possible implementation of <code>MathLib</code> with some user code.</p>
+<p>Rewrite methods are a convenient means to achieve code specialization. As an example, consider implementing a math library that implements (among others) a <code>dotProduct</code> method. Here is a possible implementation of <code>MathLib</code> with some user code.</p>
 <pre><code class="language-scala">abstract class MathLib[N : Numeric] {
   def dotProduct(xs: Array[N], ys: Array[N]): N
 }
 object MathLib {
 
-  transparent def apply[N](implicit n: Numeric[N]) = new MathLib[N] {
+  rewrite def apply[N](implicit n: Numeric[N]) = new MathLib[N] {
     import n._
     def dotProduct(xs: Array[N], ys: Array[N]): N = {
       require(xs.length == ys.length)
@@ -331,7 +371,7 @@ Even though the <code>dotProduct</code> code looks simple, there is a lot of hid
 <li>It uses unbounded generic arrays, which means code on the JVM needs reflection to access their elements</li>
 <li>All operations on array elements forward to generic operations in class <code>Numeric</code>.</li>
 </ul>
-<p>It would be quite hard for even a good optimizer to undo the generic abstractions and replace them with something simpler if <code>N</code> is specialized to a primitive type like <code>Double</code>. But since <code>apply</code> is marked <code>transparent</code>, the specialization happens automatically as a result of inlining the body of <code>apply</code> with the new types. Indeed, the specialized version of <code>dotProduct</code> looks like this:</p>
+<p>It would be quite hard for even a good optimizer to undo the generic abstractions and replace them with something simpler if <code>N</code> is specialized to a primitive type like <code>Double</code>. But since <code>apply</code> is a rewrite method, the specialization happens automatically as a result of inlining the body of <code>apply</code> with the new types. Indeed, the specialized version of <code>dotProduct</code> looks like this:</p>
 <pre><code>def dotProduct(xs: Array[Double], ys: Array[Double]): Double = {
   require(xs.length == ys.length)
   var i = 0
@@ -343,10 +383,9 @@ Even though the <code>dotProduct</code> code looks simple, there is a lot of hid
   s
 }
 </code></pre>
-<p>In other words, specialization with transparent functions allows &quot;abstraction without regret&quot;. The price to pay for this
-is the increase of code size through inlining. That price is often worth paying, but inlining decisions need to be considered carefully.</p>
+<p>In other words, specialization with rewrite methods allows &quot;abstraction without regret&quot;. The price to pay for this is the increase of code size through inlining. That price is often worth paying, but inlining decisions need to be considered carefully.</p>
 <h2><a href="#implicit-matches" id="implicit-matches">Implicit Matches</a></h2>
-<p>It is foreseen that many areas of typelevel programming can be done with transparent functions instead of implicits. But sometimes implicits are unavoidable. The problem so far was that the Prolog-like programming style of implicit search becomes viral: Once some construct depends on implicit search it has to be written as a logic program itself. Consider for instance the problem
+<p>It is foreseen that many areas of typelevel programming can be done with rewrite methods instead of implicits. But sometimes implicits are unavoidable. The problem so far was that the Prolog-like programming style of implicit search becomes viral: Once some construct depends on implicit search it has to be written as a logic program itself. Consider for instance the problem
 of creating a <code>TreeSet[T]</code> or a <code>HashSet[T]</code> depending on whether <code>T</code> has an <code>Ordering</code> or not. We can create a set of implicit definitions like this:</p>
 <pre><code class="language-scala">trait SetFor[T, S &lt;: Set[T]]
 class LowPriority {
@@ -366,7 +405,7 @@ the abstraction has to be parameterized itself with a <code>SetFor</code> implic
 <p>There are some proposals to improve the situation in specific areas, for instance by allowing more elaborate schemes to specify priorities. But they all keep the viral nature of implicit search programs based on logic programming.</p>
 <p>By contrast, the new <code>implicit match</code> construct makes implicit search available in a functional context. To solve
 the problem of creating the right set, one would use it as follows:</p>
-<pre><code class="language-scala">transparent def setFor[T]: Set[T] = implicit match {
+<pre><code class="language-scala">rewrite def setFor[T]: Set[T] = implicit match {
   case ord: Ordering[T] =&gt; new TreeSet[T]
   case _                =&gt; new HashSet[T]
 }
@@ -375,8 +414,14 @@ the problem of creating the right set, one would use it as follows:</p>
 <p>Patterns are tried in sequence. The first case with a pattern <code>x: T</code> such that an implicit value
 of type <code>T</code> can be summoned is chosen. The variable <code>x</code> is then bound to the implicit value for the remainder of the case. It can in turn be used as an implicit in the right hand side of the case.
 It is an error if one of the tested patterns gives rise to an ambiguous implicit search.</p>
-<p>Implicit matches can only occur as toplevel match expressions of transparent methods. This ensures that
-all implicit searches are done at compile-time.</p>
+<p>An implicit matches is considered to be a special kind of a rewrite match. This means it can only occur in the body of a rewrite method, and it must be reduced at compile time.</p>
+<h2><a href="#transparent-methods" id="transparent-methods">Transparent Methods</a></h2>
+<p>Recall that rewrite methods are always erased. Sometimes, this is inconvenient. Consider for example a type with a user-defined <code>unapply</code> method. If the method is marked as <code>rewrite</code>
+pattern reduction can &quot;see inside&quot; the method by expanding it. But the extractor can then not be used at run-time. To allow both use cases at the same time, one can use the <code>transparent</code> modifier. E.g.</p>
+<pre><code class="language-scala">transparent def unapply(x: C) = ...
+</code></pre>
+<p>Transparent methods are regular methods that can be called at runtime. But when an application of a transparent method occurs in the inlined body of a rewrite method,
+the method is itself inlined, just like if it had been marked <code>rewrite</code>.</p>
 <h2><a href="#transparent-values" id="transparent-values">Transparent Values</a></h2>
 <p>Value definitions can also be marked <code>transparent</code>. Examples:</p>
 <pre><code class="language-scala">transparent val label      = &quot;url&quot;
@@ -384,20 +429,21 @@ transparent val pi: Double = 3.14159265359
 </code></pre>
 <p>The right hand side of a  <code>transparent</code> value definition must be a pure expression of constant type. The type of the value is then the type of its right hand side, without any widenings. For instance, the type of <code>label</code> above is the singleton type <code>&quot;url&quot;</code> instead of <code>String</code> and the type of <code>pi</code> is <code>3.14159265359</code> instead of <code>Double</code>.</p>
 <p>Transparent values are effectively final; they may not be overridden. In Scala-2, constant values had to be expressed using <code>final</code>, which gave an unfortunate double meaning to the modifier. The <code>final</code> syntax is still supported in Scala 3 for a limited time to support cross-building.</p>
-<p>The <code>transparent</code> modifier can also be used for value parameters of <code>transparent</code> methods. Example</p>
-<pre><code class="language-scala">transparent def power(x: Double, transparent n: Int) = ...
+<p>The <code>transparent</code> modifier can also be used for value parameters of <code>rewrite</code> methods. Example</p>
+<pre><code class="language-scala">rewrite def power(x: Double, transparent n: Int) = ...
 </code></pre>
 <p>If a <code>transparent</code> modifier is given, corresponding arguments must be pure expressions of constant type.</p>
 <p>However, the restrictions on right-hand sides or arguments mentioned in this section do not apply in code that is
-itself in a <code>transparent</code> method. In other words, constantness checking is performed only when a <code>transparent</code> method
+itself in a <code>rewrite</code> method. In other words, constantness checking is performed only when a <code>transparent</code> method
 is expanded, not when it is defined.</p>
-<h2><a href="#transparent-and-inline" id="transparent-and-inline">Transparent and Inline</a></h2>
-<p>Dotty up to version 0.9 also supports an <code>inline</code> modifier. <code>inline</code> is similar to <code>transparent</code> in that inlining happens during type-checking. However, <code>inline</code> does not change the types of the inlined expressions. The expressions are instead inlined in the form of trees that are already typed.</p>
-<p>Since there is very large overlap between <code>transparent</code> and <code>inline</code>, we propose to drop <code>inline</code> as a separate modifier. The current <code>@inline</code> annotation, which represents a hint to the optimizer that inlining might be advisable, will remain unaffected.</p>
+<h2><a href="#rewrite-and-inline" id="rewrite-and-inline">Rewrite and Inline</a></h2>
+<p>Dotty up to version 0.9 also supports an <code>inline</code> modifier. <code>inline</code> is similar to <code>rewrite</code> in that inlining happens during type-checking. However, <code>inline</code> does not change the types of the inlined expressions. The expressions are instead inlined in the form of trees that are already typed.</p>
+<p>Since there is large overlap between <code>rewrite</code> and <code>inline</code>, we have dropped <code>inline</code> as a separate modifier. The current <code>@inline</code> annotation, which represents a hint to the optimizer that inlining might be advisable, remains unaffected.</p>
 <h2><a href="#relationship-to-typeof" id="relationship-to-typeof">Relationship to &quot;TypeOf&quot;</a></h2>
-<p>This document describes one particular way to conceptualize and implement transparent methods. An implementation is under way in #4616. An alternative approach is explored in #4671. The main difference is that the present proposal uses the machinery of partial evaluation (PE) whereas #4671 uses the machinery of (term-) dependent types (DT).</p>
-<p>The PE approach reduces the original right-hand side of a transparent function via term rewriting. The right hand side is conceptually the term as it is written down, closed over the environment where the transparent function was defined. This is implemented by rewriting and then re-type-checking the original untyped tree, but with typed leaves that refer to the tree's free variables. The re-type-checking with more specific argument types can lead to a type derivation that is quite different
-than the original typing of the transparent method's right hand side. Types might be inferred to be more specific, overloading resolution could pick different alternatives, and implicit searches might yield different results or might be elided altogether.
+<p>This document describes a scheme to implement typelevel computations using rewrite methods.  An alternative approach is explored in #4671 where instead of rewrite methods one has
+transparent methods that can specialize types without rewriting terms. The main difference is that the present proposal uses the machinery of partial evaluation (PE) whereas #4671 uses the machinery of (term-) dependent types (DT).</p>
+<p>The PE approach reduces the original right-hand side of a rewrite method via term rewriting. The right hand side is conceptually the term as it is written down, closed over the environment where the rewrite method was defined. This is implemented by rewriting and then re-type-checking the original untyped tree, but with typed leaves that refer to the tree's free variables. The re-type-checking with more specific argument types can lead to a type derivation that is quite different
+than the original typing of the rewrite method's right hand side. Types might be inferred to be more specific, overloading resolution could pick different alternatives, and implicit searches might yield different results or might be elided altogether.
 This flexibility is what makes code specialization work smoothly.</p>
 <p>By constrast, the DT approach typechecks the right hand side of a transparent function in a special way. Instead of
 computing types as usual, it &quot;lifts&quot; every term into a type that mirrors it. To do this, it needs to create type equivalents
@@ -419,13 +465,14 @@ Also, implicit matches would not fit into this scheme, as they require term rewr
 <ul>
 <li>It uses the standard type checker and typing rules with no need to go to full dependent types
 (only path dependent types instead of full term-dependencies).</li>
+<li>It simplify more cases.</li>
 <li>It can do code specialization.</li>
 <li>It can do implicit matches.</li>
 <li>It can also serve as the inlining mechanism for implementing macros with staging (see next section).</li>
 </ul>
 <h2><a href="#relationship-to-meta-programming" id="relationship-to-meta-programming">Relationship To Meta Programming</a></h2>
-<p>Transparent functions are a safer alternative to the whitebox macros in Scala 2. Both share the principle that some function applications get expanded such that the types of these applications are the types of their expansions. But the way the expansions are performed is completely different: For transparent functions, expansions are simply beta reduction (<em>aka</em> inlining) and a set of rewrite rules that are sound wrt the language semantics. All rewritings are performed by the compiler itself. It is really as if some parts of the program reduction are performed early, which is the essence of partial evaluation.</p>
-<p>By contrast, Scala 2 macros mean that user-defined code is invoked to process program fragments as data. The result of this computation is then embedded instead of the macro call. Macros are thus a lot more powerful than transparent functions, but also a lot less safe.</p>
+<p>Rewrite methods are a safer alternative to the whitebox macros in Scala 2. Both share the principle that some function applications get expanded such that the types of these applications are the types of their expansions. But the way the expansions are performed is completely different: For rewrite methods, expansions are simply beta reduction (<em>aka</em> inlining) and a set of rewrite rules that are patterned after the language semantics. All rewritings are performed by the compiler itself. It is really as if some parts of the program reduction are performed early, which is the essence of partial evaluation.</p>
+<p>By contrast, Scala 2 macros mean that user-defined code is invoked to process program fragments as data. The result of this computation is then embedded instead of the macro call. Macros are thus a lot more powerful than rewrite methods, but also a lot less safe.</p>
 <p>Functionality analogous to blackbox macros in Scala-2 is available in Scala-3 through its <a href="https://dotty.epfl.ch/docs/reference/principled-meta-programming.html">principled meta programming</a> system: Code can be turned into data using quotes <code>(')</code>. Code-returning computations can be inserted into quotes using splices <code>(~)</code>. A splice outside quotes means that the spliced computation is <em>run</em>, which is the analogue of
 invoking a macro. Quoted code can be inspected using reflection on Tasty trees.</p>
 <p>To compare: here's the scheme used in Scala-2 to define a macro:</p>
@@ -434,11 +481,11 @@ invoking a macro. Quoted code can be inspected using reflection on Tasty trees.<
 def mImpl(x: Tree) = ...
 </code></pre>
 <p>Here's analogous functionality in Scala-3:</p>
-<pre><code class="language-scala">transparent def m(x: T) = ~mImpl('x)
+<pre><code class="language-scala">rewrite def m(x: T) = ~mImpl('x)
 ...
 def mImpl(x: Expr[T]) = ...
 </code></pre>
-<p>The new scheme is more explicit and orthogonal: The usual way to define a macro is as a transparent function that invokes with <code>~</code> a macro library method, passing it quoted arguments as data. The role of the transparent function is simply to avoid to have to write the splices and quotes in user code.</p>
+<p>The new scheme is more explicit and orthogonal: The usual way to define a macro is as a rewrite method that invokes with <code>~</code> a macro library method, passing it quoted arguments as data. The role of the rewrite method is simply to avoid to have to write the splices and quotes in user code.</p>
 <p>One important difference between the two schemes is that the reflective call implied by <code>~</code> is performed <em>after</em> the program is typechecked. Besides a better separation of concerns, this also provides a more predictable environment for macro code to run in.</p>
 <h2><a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h2>
 <p>Many of the ideas in this proposal resulted from discussions with @gsps and @OlivierBlanvillain, the authors of the &quot;TypeOf&quot; approach (PR #4671). @gsps suggested the use of the <code>transparent</code> keyword. @OlivierBlanvillain suggested techniques like <code>erasedValue</code> and <code>Typed</code> to lift term computations to types. The present proposal also benefited from feedback from @milessabin, @adriaanm, @sjrd, Andrei Alexandrescu, John Hughes, Conor McBride and Stephanie Weirich on earlier designs. The relationship with meta programming has a lot in common with the original inline and meta proposals in SIP 28 and SIP 29.</p>

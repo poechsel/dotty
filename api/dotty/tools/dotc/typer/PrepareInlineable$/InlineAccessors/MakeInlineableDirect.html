@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-27 -->
+<!-- This page was last generated on 2018-08-28 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -158,7 +158,7 @@
 </li>
 <li><a href="../../../../../../.././docs/reference/trait-parameters.html">Trait Parameters</a>
 </li>
-<li><a href="../../../../../../.././docs/reference/inline.html">Inlining with Transparent</a>
+<li><a href="../../../../../../.././docs/reference/inline.html">Inlining by Rewriting</a>
 </li>
 <li><a href="../../../../../../.././docs/reference/principled-meta-programming.html">Meta Programming</a>
 </li>
@@ -5014,7 +5014,7 @@
         </li>
     
         <li class="index-entity entity-package">
-            <h1><a class="entity-name" href="../../../../../../.././api/dotty/tools/dotc/rewrite/index.html">dotty.tools.dotc.rewrite</a></h1>
+            <h1><a class="entity-name" href="../../../../../../.././api/dotty/tools/dotc/rewrites/index.html">dotty.tools.dotc.rewrites</a></h1>
             <ul class="package-entities">
                 <div id="cover-block"></div>
             
@@ -5026,11 +5026,11 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites$.html">O</a>
                         
-                        <a class="letter-anchor class" href="../../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">C</a>
+                        <a class="letter-anchor class" href="../../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">C</a>
                     </div>
-                    <a class="entity-name" href="../../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">Rewrites</a>
+                    <a class="entity-name" href="../../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">Rewrites</a>
                 </li>
 
                 
@@ -7971,9 +7971,9 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">O</a>
                     </div>
-                    <a class="entity-name" href="../../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">PrepareTransparent</a>
+                    <a class="entity-name" href="../../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">PrepareInlineable</a>
                 </li>
 
                 
@@ -12112,7 +12112,7 @@
 
 
     <script>
-        document.title = "Dotty Docs - MakeInlineableMap"
+        document.title = "Dotty Docs - MakeInlineableDirect"
     </script>
 
     <div id="content-body">
@@ -12122,13 +12122,13 @@
                     
                 </span>
                 <span id="entity-modifiers">
-                    abstract
+                    
                 </span>
                 <span id="entity-kind">
                     class
                 </span>
                 <span id="entity-name">
-                    MakeInlineableMap
+                    MakeInlineableDirect
                 </span>
                 
                 
@@ -12137,12 +12137,7 @@
                     
                     <span class="keyword">extends</span>
                     
-                    <span class="entity-super-type"><a href="../../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance/TreeMap.html">TreeMap</a></span>
-                    
-                    
-                    <span class="keyword">with</span>
-                    
-                    <span class="entity-super-type"><a href="../../../../../../.././api/dotty/tools/dotc/transform/AccessProxies/Insert.html">Insert</a></span>
+                    <span class="entity-super-type"><a href="../../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$/InlineAccessors/MakeInlineableMap.html">MakeInlineableMap</a></span>
                     
                 </div>
                 
@@ -12150,7 +12145,10 @@
 
             
             <div id="entity-body" class="entity-section">
-                <p>A tree map which inserts accessors for non-public term members accessed from inlined code.</p>
+                <p>Direct approach: place the accessor with the accessed symbol. This has the
+advantage that we can re-use the receiver as is. But it is only
+possible if the receiver is essentially this or an outer this, which is indicated
+by the test that we can find a host for the accessor.</p>
 
             </div>
             
@@ -12165,7 +12163,7 @@
                     
                     <div class="member">
                         <div class="member-title">
-                            <span class="member-name">MakeInlineableMap</span>
+                            <span class="member-name">MakeInlineableDirect</span>
                             <span class="no-left">(</span>
                                 
                                 
@@ -12189,14 +12187,14 @@
 
             <div id="entity-members" class="entity-section ">
                 
-                <div id="inlineSym" class="member ">
+                <div id="inlineSym" class="member private">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'inlineSym');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
                         <span class="member-modifiers">
-                            
+                            private
                         </span>
                         <span class="member-kind">
                             val
@@ -12223,55 +12221,21 @@
                     </div>
                 </div><!-- end member -->
                 
-                <div id="accessorNameKind" class="member ">
+                <div id="ifNoHost(reference)(ctx)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'accessorNameKind');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'ifNoHost(reference)(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
                         <span class="member-modifiers">
-                            
+                            override
                         </span>
                         <span class="member-kind">
                             def
                         </span>
                         <span class="member-name ">
                             
-                                accessorNameKind
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../../.././api/dotty/tools/dotc/core/NameKinds$/ClassifiedNameKind.html">ClassifiedNameKind</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-accessorNameKind">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="needsAccessor(sym)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'needsAccessor(sym)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                needsAccessor
+                                ifNoHost
                             
                         </span>
 
@@ -12281,74 +12245,9 @@
                                 
                                 
                                     <span class="no-left">
-                                        sym:
+                                        reference:
                                     </span>
-                                    <a href="../../../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-needsAccessor(sym)(ctx)">
-                            <p>A definition needs an accessor if it is private, protected, or qualified private
-and it is not part of the tree that gets inlined. The latter test is implemented
-by excluding all symbols properly contained in the inlined method.</p>
-<p>Constant vals don't need accessors since they are inlined in FirstTransform.
-Transparent methods don't need accessors since they are inlined in Typer.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="postTransform(tree)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'postTransform(tree)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                postTransform
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    <a href="../../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#RefTree">RefTree</a>
                                     
                                 
                             <span class="no-left">)</span>
@@ -12376,7 +12275,7 @@ Transparent methods don't need accessors since they are inlined in Typer.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-postTransform(tree)(ctx)">
+                        <div class="member-body-long" id ="long-body-ifNoHost(reference)(ctx)">
                             
                         </div>
                     </div>
@@ -12437,66 +12336,6 @@ Transparent methods don't need accessors since they are inlined in Typer.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-preTransform(tree)(ctx)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="transform(tree)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'transform(tree)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                transform
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-transform(tree)(ctx)">
                             
                         </div>
                     </div>

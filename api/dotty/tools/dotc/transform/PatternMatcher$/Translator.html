@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-27 -->
+<!-- This page was last generated on 2018-08-28 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -158,7 +158,7 @@
 </li>
 <li><a href="../../../../../.././docs/reference/trait-parameters.html">Trait Parameters</a>
 </li>
-<li><a href="../../../../../.././docs/reference/inline.html">Inlining with Transparent</a>
+<li><a href="../../../../../.././docs/reference/inline.html">Inlining by Rewriting</a>
 </li>
 <li><a href="../../../../../.././docs/reference/principled-meta-programming.html">Meta Programming</a>
 </li>
@@ -5014,7 +5014,7 @@
         </li>
     
         <li class="index-entity entity-package">
-            <h1><a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrite/index.html">dotty.tools.dotc.rewrite</a></h1>
+            <h1><a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrites/index.html">dotty.tools.dotc.rewrites</a></h1>
             <ul class="package-entities">
                 <div id="cover-block"></div>
             
@@ -5026,11 +5026,11 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites$.html">O</a>
                         
-                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">C</a>
+                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">C</a>
                     </div>
-                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">Rewrites</a>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">Rewrites</a>
                 </li>
 
                 
@@ -7971,9 +7971,9 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">O</a>
                     </div>
-                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">PrepareTransparent</a>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">PrepareInlineable</a>
                 </li>
 
                 
@@ -12155,10 +12155,10 @@ Its general structure is a pipeline:</p>
 <li>emit the translated tree, using methods <code>emit</code>, <code>collectSwitchCases</code>,
 <code>emitSwitchCases</code>, and <code>emitCondition</code>.</li>
 </ul>
-<p>A plan represents the underlying decision graph. It consists
-of tests, let and label bindings, calls to labels and code blocks.
-It's represented by its own data type. Plans are optimized by
-inlining, hoisting, and the elimination of redundant tests and dead code.</p>
+<p>A plan represents the underlying decision graph. It consists of tests,
+let bindings, labeled blocks, return from said labeled blocks and code blocks.
+It's represented by its own data type. Plans are optimized by merging common
+tests and eliminating dead code.</p>
 
             </div>
             
@@ -12222,134 +12222,6 @@ inlining, hoisting, and the elimination of redundant tests and dead code.</p>
             </h1>
 
             <div id="entity-members" class="entity-section ">
-                
-                <div id="CallPlan" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'CallPlan');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            case class
-                        </span>
-                        <span class="member-name ">
-                            
-                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/CallPlan.html">CallPlan</a>
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-CallPlan">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="CallPlan$" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'CallPlan$');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            object
-                        </span>
-                        <span class="member-name ">
-                            
-                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/CallPlan$.html">CallPlan</a>
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-CallPlan$">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="CodePlan" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'CodePlan');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            case class
-                        </span>
-                        <span class="member-name ">
-                            
-                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/CodePlan.html">CodePlan</a>
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-CodePlan">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="CodePlan$" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'CodePlan$');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            object
-                        </span>
-                        <span class="member-name ">
-                            
-                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/CodePlan$.html">CodePlan</a>
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-CodePlan$">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
                 
                 <div id="EqualTest" class="member ">
                     <div class="member-title">
@@ -12447,9 +12319,9 @@ inlining, hoisting, and the elimination of redundant tests and dead code.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="LabelledPlan" class="member ">
+                <div id="LabeledPlan" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'LabelledPlan');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'LabeledPlan');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12461,7 +12333,7 @@ inlining, hoisting, and the elimination of redundant tests and dead code.</p>
                         </span>
                         <span class="member-name ">
                             
-                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/LabelledPlan.html">LabelledPlan</a>
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/LabeledPlan.html">LabeledPlan</a>
                             
                         </span>
 
@@ -12473,15 +12345,15 @@ inlining, hoisting, and the elimination of redundant tests and dead code.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-LabelledPlan">
+                        <div class="member-body-long" id ="long-body-LabeledPlan">
                             
                         </div>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="LabelledPlan$" class="member ">
+                <div id="LabeledPlan$" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'LabelledPlan$');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'LabeledPlan$');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12493,7 +12365,7 @@ inlining, hoisting, and the elimination of redundant tests and dead code.</p>
                         </span>
                         <span class="member-name ">
                             
-                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/LabelledPlan$.html">LabelledPlan</a>
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/LabeledPlan$.html">LabeledPlan</a>
                             
                         </span>
 
@@ -12505,7 +12377,7 @@ inlining, hoisting, and the elimination of redundant tests and dead code.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-LabelledPlan$">
+                        <div class="member-body-long" id ="long-body-LabeledPlan$">
                             
                         </div>
                     </div>
@@ -12801,6 +12673,198 @@ inlining, hoisting, and the elimination of redundant tests and dead code.</p>
                     </div>
                 </div><!-- end member -->
                 
+                <div id="ResultPlan" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'ResultPlan');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            case class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/ResultPlan.html">ResultPlan</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-ResultPlan">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="ResultPlan$" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'ResultPlan$');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            object
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/ResultPlan$.html">ResultPlan</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-ResultPlan$">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="ReturnPlan" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'ReturnPlan');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            case class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/ReturnPlan.html">ReturnPlan</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-ReturnPlan">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="ReturnPlan$" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'ReturnPlan$');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            object
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/ReturnPlan$.html">ReturnPlan</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-ReturnPlan$">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="SeqPlan" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'SeqPlan');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            case class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/SeqPlan.html">SeqPlan</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-SeqPlan">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="SeqPlan$" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'SeqPlan$');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            object
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/SeqPlan$.html">SeqPlan</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-SeqPlan$">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="Test" class="member ">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'Test');">[+]</span>
@@ -13028,48 +13092,6 @@ They are discarded during the translation.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="hoistLabels$" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'hoistLabels$');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            object
-                        </span>
-                        <span class="member-name ">
-                            
-                                <a href="../../../../../.././api/dotty/tools/dotc/transform/PatternMatcher$/Translator/hoistLabels$.html">hoistLabels</a>
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-hoistLabels$">
-                            <p>Rewrite everywhere</p>
-<p>if C then (let L = B in E1) else E2
---&gt;
-let L = B in if C then E1 else E2</p>
-<p>if C then E1 else (let L = B in E2)
---&gt;
-let L = B in if C then E1 else E2</p>
-<p>let L1 = (let L2 = B2 in B1) in E
---&gt;
-let L2 = B2 in let L1 = B1 in E</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="ctx" class="member private">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'ctx');">[+]</span>
@@ -13177,43 +13199,6 @@ Int
                             <p>A map from variable symbols to their defining trees
 and from labels to their defining plans</p>
 
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="labelled" class="member private">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'labelled');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            private
-                        </span>
-                        <span class="member-kind">
-                            val
-                        </span>
-                        <span class="member-name ">
-                            
-                                labelled
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Symbols$/MutableSymbolMap.html">MutableSymbolMap</a>
-<span class="no-left no-right">[</span>
-Plan
-<span class="no-left">]</span></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-labelled">
-                            
                         </div>
                     </div>
                 </div><!-- end member -->
@@ -13368,6 +13353,40 @@ Boolean
                     </div>
                 </div><!-- end member -->
                 
+                <div id="resultLabel" class="member private">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'resultLabel');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            private
+                        </span>
+                        <span class="member-kind">
+                            val
+                        </span>
+                        <span class="member-name ">
+                            
+                                resultLabel
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-resultLabel">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="resultType" class="member private">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'resultType');">[+]</span>
@@ -13436,9 +13455,104 @@ Boolean
                     </div>
                 </div><!-- end member -->
                 
-                <div id="caseDefPlan(scrutinee,cdef,onFailure)" class="member private">
+                <div id="altsLabeledAbstract(expr)" class="member private">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'caseDefPlan(scrutinee,cdef,onFailure)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'altsLabeledAbstract(expr)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            private
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                altsLabeledAbstract
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        expr:
+                                    </span>
+                                    Plan<span class="right-arrow"> =&gt; </span>Plan
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Plan</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-altsLabeledAbstract(expr)">
+                            <p>The plan <code>l: { expr(l) }</code> where <code>l</code> is a fresh label</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="canFallThrough(plan)" class="member private">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'canFallThrough(plan)');">[+]</span>
+                        <span class="member-annotations">
+                            @tailrec 
+                        </span>
+                        <span class="member-modifiers">
+                            private
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                canFallThrough
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        plan:
+                                    </span>
+                                    Plan
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Boolean</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-canFallThrough(plan)">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="caseDefPlan(scrutinee,cdef)" class="member private">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'caseDefPlan(scrutinee,cdef)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -13472,14 +13586,6 @@ Boolean
                                     </span>
                                     <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#CaseDef">CaseDef</a>
                                     
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        onFailure:
-                                    </span>
-                                    Plan
-                                    
                                 
                             <span class="no-left">)</span>
                             
@@ -13493,7 +13599,7 @@ Boolean
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-caseDefPlan(scrutinee,cdef,onFailure)">
+                        <div class="member-body-long" id ="long-body-caseDefPlan(scrutinee,cdef)">
                             
                         </div>
                     </div>
@@ -13556,9 +13662,9 @@ with at least as many cases as the original match.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="collectSwitchCases(plan)" class="member private">
+                <div id="collectSwitchCases(scrutinee,plan)" class="member private">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'collectSwitchCases(plan)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'collectSwitchCases(scrutinee,plan)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -13580,9 +13686,17 @@ with at least as many cases as the original match.</p>
                                 
                                 
                                     <span class="no-left">
+                                        scrutinee:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
                                         plan:
                                     </span>
-                                    TestPlan
+                                    SeqPlan
                                     
                                 
                             <span class="no-left">)</span>
@@ -13594,74 +13708,21 @@ with at least as many cases as the original match.</p>
                         
                         <span class="no-left">: List
 <span class="no-left no-right">[</span>
-Plan
+<span class="no-right">(</span>
+List
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+<span class="no-left">]</span><span>, </span>Plan
+<span class="no-left">)</span>
 <span class="no-left">]</span></span>
                         
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-collectSwitchCases(plan)">
+                        <div class="member-body-long" id ="long-body-collectSwitchCases(scrutinee,plan)">
                             <p>Collect longest list of plans that represent possible cases of
 a switch, including a last default case, by starting with this
 plan and following onSuccess plans.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="elimRedundantTests(plan)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'elimRedundantTests(plan)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                elimRedundantTests
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        plan:
-                                    </span>
-                                    Plan
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Plan</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-elimRedundantTests(plan)">
-                            <p>Eliminate tests that are redundant (known to be true or false).
-Two parts:</p>
-<ul>
-<li>If we know at some point that a test is true or false skip it and continue
-diretcly with the test's onSuccess or onFailure continuation.</li>
-<li>If a label of a call points to a test that is known to be true or false
-at the point of call, let the label point instead to the test's onSuccess
-or onFailure continuation.</li>
-</ul>
-<p>We use some tricks to identify a let pointing to an unapply and the
-NonEmptyTest that follows it as a single <code>UnappTest</code> test.</p>
 
                         </div>
                     </div>
@@ -13791,7 +13852,12 @@ NonEmptyTest that follows it as a single <code>UnappTest</code> test.</p>
                                     </span>
                                     List
 <span class="no-left no-right">[</span>
-Plan
+<span class="no-right">(</span>
+List
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+<span class="no-left">]</span><span>, </span>Plan
+<span class="no-left">)</span>
 <span class="no-left">]</span>
                                     
                                 
@@ -13817,9 +13883,9 @@ Plan
                     </div>
                 </div><!-- end member -->
                 
-                <div id="inlineLabelled(plan)" class="member private">
+                <div id="hasEnoughSwitchCases(cases,required)" class="member private">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'inlineLabelled(plan)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'hasEnoughSwitchCases(cases,required)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -13831,7 +13897,7 @@ Plan
                         </span>
                         <span class="member-name ">
                             
-                                inlineLabelled
+                                hasEnoughSwitchCases
                             
                         </span>
 
@@ -13841,9 +13907,25 @@ Plan
                                 
                                 
                                     <span class="no-left">
-                                        plan:
+                                        cases:
                                     </span>
-                                    Plan
+                                    List
+<span class="no-left no-right">[</span>
+<span class="no-right">(</span>
+List
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+<span class="no-left">]</span><span>, </span>Plan
+<span class="no-left">)</span>
+<span class="no-left">]</span>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        required:
+                                    </span>
+                                    Int
                                     
                                 
                             <span class="no-left">)</span>
@@ -13853,15 +13935,13 @@ Plan
                         
 
                         
-                        <span class="no-left">: Plan</span>
+                        <span class="no-left">: Boolean</span>
                         
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-inlineLabelled(plan)">
-                            <p>Inline labelled blocks that are referenced only once.
-Drop all labels that are not referenced anymore after this.</p>
-
+                        <div class="member-body-long" id ="long-body-hasEnoughSwitchCases(cases,required)">
+                            
                         </div>
                     </div>
                 </div><!-- end member -->
@@ -13910,65 +13990,6 @@ Drop all labels that are not referenced anymore after this.</p>
                         <div class="member-body-long" id ="long-body-inlineVars(plan)">
                             <p>Inline let-bound trees that are referenced only once.
 Drop all variables that are not referenced anymore after this.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="labelAbstract(labeld)(body)" class="member private">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'labelAbstract(labeld)(body)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            private
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                labelAbstract
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        labeld:
-                                    </span>
-                                    Plan
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        body:
-                                    </span>
-                                    Plan<span class="right-arrow"> =&gt; </span>Plan
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Plan</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-labelAbstract(labeld)(body)">
-                            <p>The plan <code>let l = labelled in body(l)</code> where <code>l</code> is a fresh label</p>
 
                         </div>
                     </div>
@@ -14131,21 +14152,21 @@ Drop all variables that are not referenced anymore after this.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="mergeVars(plan)" class="member private">
+                <div id="mergeTests(plan)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'mergeVars(plan)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'mergeTests(plan)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
                         <span class="member-modifiers">
-                            private
+                            
                         </span>
                         <span class="member-kind">
                             def
                         </span>
                         <span class="member-name ">
                             
-                                mergeVars
+                                mergeTests
                             
                         </span>
 
@@ -14172,9 +14193,30 @@ Drop all variables that are not referenced anymore after this.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-mergeVars(plan)">
-                            <p>Merge variables that have the same right hand side.
-Propagate common variable bindings as parameters into case labels.</p>
+                        <div class="member-body-long" id ="long-body-mergeTests(plan)">
+                            <p>Merge identical consecutive tests.</p>
+<p>When we have the following shape:</p>
+<p>if (testA) plan1
+if (testA) plan2
+nextPlan?</p>
+<p>transform it to</p>
+<p>if (testA) {
+plan1
+plan2
+}
+nextPlan?</p>
+<p>Similarly, when we have equivalent let bindings:</p>
+<p>let x1 = rhs1 in plan1
+let x2 = rhs2 in plan2
+nextPlan?</p>
+<p>and rhs1 and rhs2 are equivalent, transform it to</p>
+<p>let x1 = rhs1 in {
+plan1
+plan2[x1/x2]
+}</p>
+<p>where plan2[x1/x2] means substituting x1 for x2 in plan2.</p>
+<p>There are some tricks to &quot;ignore&quot; non-patmat-generated let bindings, i.e.,
+captures written in the source code, while identifying common subplans.</p>
 
                         </div>
                     </div>
@@ -14235,9 +14277,9 @@ Propagate common variable bindings as parameters into case labels.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="patternPlan(scrutinee,tree,onSuccess,onFailure)" class="member private">
+                <div id="patternPlan(scrutinee,tree,onSuccess)" class="member private">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'patternPlan(scrutinee,tree,onSuccess,onFailure)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'patternPlan(scrutinee,tree,onSuccess)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -14279,14 +14321,6 @@ Propagate common variable bindings as parameters into case labels.</p>
                                     </span>
                                     Plan
                                     
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        onFailure:
-                                    </span>
-                                    Plan
-                                    
                                 
                             <span class="no-left">)</span>
                             
@@ -14300,7 +14334,7 @@ Propagate common variable bindings as parameters into case labels.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-patternPlan(scrutinee,tree,onSuccess,onFailure)">
+                        <div class="member-body-long" id ="long-body-patternPlan(scrutinee,tree,onSuccess)">
                             <p>Plan for matching <code>scrutinee</code> symbol against <code>tree</code> pattern</p>
 
                         </div>

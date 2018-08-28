@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-27 -->
+<!-- This page was last generated on 2018-08-28 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -158,7 +158,7 @@
 </li>
 <li><a href="../../../../../.././docs/reference/trait-parameters.html">Trait Parameters</a>
 </li>
-<li><a href="../../../../../.././docs/reference/inline.html">Inlining with Transparent</a>
+<li><a href="../../../../../.././docs/reference/inline.html">Inlining by Rewriting</a>
 </li>
 <li><a href="../../../../../.././docs/reference/principled-meta-programming.html">Meta Programming</a>
 </li>
@@ -5014,7 +5014,7 @@
         </li>
     
         <li class="index-entity entity-package">
-            <h1><a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrite/index.html">dotty.tools.dotc.rewrite</a></h1>
+            <h1><a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrites/index.html">dotty.tools.dotc.rewrites</a></h1>
             <ul class="package-entities">
                 <div id="cover-block"></div>
             
@@ -5026,11 +5026,11 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites$.html">O</a>
                         
-                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">C</a>
+                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">C</a>
                     </div>
-                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">Rewrites</a>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">Rewrites</a>
                 </li>
 
                 
@@ -7971,9 +7971,9 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">O</a>
                     </div>
-                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">PrepareTransparent</a>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">PrepareInlineable</a>
                 </li>
 
                 
@@ -12112,7 +12112,7 @@
 
 
     <script>
-        document.title = "Dotty Docs - Patches"
+        document.title = "Dotty Docs - PatchedFiles"
     </script>
 
     <div id="content-body">
@@ -12128,7 +12128,7 @@
                     class
                 </span>
                 <span id="entity-name">
-                    Patches
+                    PatchedFiles
                 </span>
                 
                 
@@ -12137,7 +12137,7 @@
                     
                     <span class="keyword">extends</span>
                     
-                    <span class="entity-super-type">Object</span>
+                    <span class="entity-super-type">HashMap</span>
                     
                 </div>
                 
@@ -12155,15 +12155,9 @@
                     
                     <div class="member">
                         <div class="member-title">
-                            <span class="member-name">Patches</span>
+                            <span class="member-name">PatchedFiles</span>
                             <span class="no-left">(</span>
                                 
-                                
-                                    <span class="no-left">
-                                        source:
-                                    </span>
-                                    SourceFile
-                                    
                                 
                             <span class="no-left">)</span>
                         </div>
@@ -12172,232 +12166,12 @@
                 
             </div>
 
-            <h1 class="section ">
+            <h1 class="section empty">
               <span class="expand-button visible" onclick="toggleMembersBody(this, 'members');">[-]</span>
                 Members
             </h1>
 
-            <div id="entity-members" class="entity-section ">
-                
-                <div id="pbuf" class="member private">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'pbuf');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            private
-                        </span>
-                        <span class="member-kind">
-                            val
-                        </span>
-                        <span class="member-name ">
-                            
-                                pbuf
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: ListBuffer
-<span class="no-left no-right">[</span>
-<a href="../../../../../.././api/dotty/tools/dotc/rewrite/Rewrites$/Patch.html">Patch</a>
-<span class="no-left">]</span></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-pbuf">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="source" class="member private">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'source');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            private
-                        </span>
-                        <span class="member-kind">
-                            val
-                        </span>
-                        <span class="member-name ">
-                            
-                                source
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/util/SourceFile.html">SourceFile</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-source">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="addPatch(pos,replacement)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'addPatch(pos,replacement)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                addPatch
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        pos:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/util/Positions$/Position.html">Position</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        replacement:
-                                    </span>
-                                    String
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Unit</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-addPatch(pos,replacement)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="apply(cs)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'apply(cs)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                apply
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        cs:
-                                    </span>
-                                    Array
-<span class="no-left no-right">[</span>
-Char
-<span class="no-left">]</span>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Array
-<span class="no-left no-right">[</span>
-Char
-<span class="no-left">]</span></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-apply(cs)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="writeBack()" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'writeBack()');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                writeBack
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Unit</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-writeBack()">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
+            <div id="entity-members" class="entity-section empty">
                 
                 <script>
                     function toggleMembersBody(span, arg){

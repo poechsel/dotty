@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-27 -->
+<!-- This page was last generated on 2018-08-28 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -158,7 +158,7 @@
 </li>
 <li><a href="../../../../.././docs/reference/trait-parameters.html">Trait Parameters</a>
 </li>
-<li><a href="../../../../.././docs/reference/inline.html">Inlining with Transparent</a>
+<li><a href="../../../../.././docs/reference/inline.html">Inlining by Rewriting</a>
 </li>
 <li><a href="../../../../.././docs/reference/principled-meta-programming.html">Meta Programming</a>
 </li>
@@ -5014,7 +5014,7 @@
         </li>
     
         <li class="index-entity entity-package">
-            <h1><a class="entity-name" href="../../../../.././api/dotty/tools/dotc/rewrite/index.html">dotty.tools.dotc.rewrite</a></h1>
+            <h1><a class="entity-name" href="../../../../.././api/dotty/tools/dotc/rewrites/index.html">dotty.tools.dotc.rewrites</a></h1>
             <ul class="package-entities">
                 <div id="cover-block"></div>
             
@@ -5026,11 +5026,11 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../.././api/dotty/tools/dotc/rewrite/Rewrites$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../.././api/dotty/tools/dotc/rewrites/Rewrites$.html">O</a>
                         
-                        <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">C</a>
+                        <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">C</a>
                     </div>
-                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/rewrite/Rewrites.html">Rewrites</a>
+                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/rewrites/Rewrites.html">Rewrites</a>
                 </li>
 
                 
@@ -7971,9 +7971,9 @@
 
                     <div class="entity-kinds">
                         
-                        <a class="letter-anchor object" href="../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">O</a>
+                        <a class="letter-anchor object" href="../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">O</a>
                     </div>
-                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/typer/PrepareTransparent$.html">PrepareTransparent</a>
+                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/typer/PrepareInlineable$.html">PrepareInlineable</a>
                 </li>
 
                 
@@ -12571,9 +12571,9 @@ the prefix &quot;dotty.language.&quot;.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="inTransparentMethod" class="member ">
+                <div id="inRewriteMethod" class="member ">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'inTransparentMethod');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'inRewriteMethod');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12585,7 +12585,7 @@ the prefix &quot;dotty.language.&quot;.</p>
                         </span>
                         <span class="member-name ">
                             
-                                inTransparentMethod
+                                inRewriteMethod
                             
                         </span>
 
@@ -12599,8 +12599,8 @@ the prefix &quot;dotty.language.&quot;.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-inTransparentMethod">
-                            <p>Are we in a transparent method body?</p>
+                        <div class="member-body-long" id ="long-body-inRewriteMethod">
+                            <p>Are we in a rewrite method body?</p>
 
                         </div>
                     </div>
@@ -12864,9 +12864,9 @@ class B extends C[B] with D with E
                     </div>
                 </div><!-- end member -->
                 
-                <div id="testScala2Mode(msg,pos,rewrite)" class="member ">
+                <div id="testScala2Mode(msg,pos,replace)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'testScala2Mode(msg,pos,rewrite)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'testScala2Mode(msg,pos,replace)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12904,7 +12904,7 @@ class B extends C[B] with D with E
                                     
                                 
                                     <span class="">
-                                        rewrite: =&gt;
+                                        replace: =&gt;
                                     </span>
                                     Unit
                                     
@@ -12921,7 +12921,7 @@ class B extends C[B] with D with E
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-testScala2Mode(msg,pos,rewrite)">
+                        <div class="member-body-long" id ="long-body-testScala2Mode(msg,pos,replace)">
                             
                         </div>
                     </div>
