@@ -12124,11 +12124,12 @@ contain <code>1.8</code>. Work to support Java 9 is
 <a href="https://github.com/lampepfl/dotty/pull/3138">ongoing</a>.</p>
 <h2><a href="#compiling-and-running" id="compiling-and-running">Compiling and Running</a></h2>
 <p>Start by cloning the repository:</p>
-<pre><code class="language-bash">$ git clone --recursive --single-branch https://github.com/lampepfl/dotty.git
+<pre><code class="language-bash">$ git clone --recurse-submodules --single-branch https://github.com/lampepfl/dotty.git
 $ cd dotty
 $ sbt managedSources # Needed for IDE import to succeed
 </code></pre>
 <p>Pass <code>--single-branch</code> to clone only the master branch, otherwise cloning will be <em>much</em> slower (details in <a href="https://github.com/lampepfl/dotty/issues/3236">issue #3236</a>).</p>
+<p>The repository uses submodules, which may need updating/initializing using <code>git submodule update --init</code>. Starting <code>sbt</code> will alert you if this is needed.</p>
 <p>Dotty provides a standard sbt build: compiling, running and starting a repl can
 all be done from within sbt:</p>
 <pre><code class="language-bash">$ sbt
