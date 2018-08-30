@@ -12784,7 +12784,71 @@ Int<span>, </span>List
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-enclosingTree(trees,pos)(ctx)">
-                            <p>The closest enclosing tree with a symbol containing position <code>pos</code>.</p>
+                            <p>The closest enclosing tree with a symbol containing position <code>pos</code>, or the <code>EmptyTree</code>.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="enclosingTree(path)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'enclosingTree(path)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                enclosingTree
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        path:
+                                    </span>
+                                    List
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+<span class="no-left">]</span>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-enclosingTree(path)(ctx)">
+                            <p>The closes enclosing tree with a symbol, or the <code>EmptyTree</code>.</p>
 
                         </div>
                     </div>
@@ -12857,6 +12921,89 @@ Int<span>, </span>List
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-enclosingType(trees,pos)(ctx)">
                             <p>The type of the closest enclosing tree with a type containing position <code>pos</code>.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="findTreesMatching(trees,includes,symbol)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'findTreesMatching(trees,includes,symbol)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                findTreesMatching
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        trees:
+                                    </span>
+                                    List
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/interactive/SourceTree.html">SourceTree</a>
+<span class="no-left">]</span>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        includes:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/interactive/Interactive$/Include$.html#Set">Set</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        symbol:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: List
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/interactive/SourceTree.html">SourceTree</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-findTreesMatching(trees,includes,symbol)(ctx)">
+                            <p>Find trees that match <code>symbol</code> in <code>trees</code>.</p>
 
                         </div>
                     </div>
