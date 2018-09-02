@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-08-31 -->
+<!-- This page was last generated on 2018-09-02 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12451,6 +12451,74 @@ String
                     </div>
                 </div><!-- end member -->
                 
+                <div id="bind(name,value)(state)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'bind(name,value)(state)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            final
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                bind
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        name:
+                                    </span>
+                                    String
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        value:
+                                    </span>
+                                    Any
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        state:
+                                    </span>
+                                    <a href="../../../.././api/dotty/tools/repl/State.html">State</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../.././api/dotty/tools/repl/State.html">State</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-bind(name,value)(state)">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="compile(parsed,istate)" class="member private">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'compile(parsed,istate)');">[+]</span>
@@ -12760,41 +12828,6 @@ Candidate
                     </div>
                 </div><!-- end member -->
                 
-                <div id="initState" class="member protected">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'initState');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            protected
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                initState
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../.././api/dotty/tools/repl/State.html">State</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-initState">
-                            <p>the initial, empty state of the REPL session</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="initialCtx" class="member private">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'initialCtx');">[+]</span>
@@ -12825,6 +12858,41 @@ Candidate
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-initialCtx">
                             <p>Create a fresh and initialized context with IDE mode enabled</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="initialState" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'initialState');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            final
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                initialState
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../.././api/dotty/tools/repl/State.html">State</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-initialState">
+                            <p>the initial, empty state of the REPL session</p>
 
                         </div>
                     </div>
@@ -13151,9 +13219,9 @@ everything properly</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="runUntilQuit()" class="member ">
+                <div id="runUntilQuit(initialState)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'runUntilQuit()');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'runUntilQuit(initialState)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -13174,6 +13242,12 @@ everything properly</p>
                             <span class="no-left">(</span>
                                 
                                 
+                                    <span class="no-left">
+                                        initialState:
+                                    </span>
+                                    <a href="../../../.././api/dotty/tools/repl/State.html">State</a>
+                                    
+                                
                             <span class="no-left">)</span>
                             
                         
@@ -13186,7 +13260,45 @@ everything properly</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-runUntilQuit()">
+                        <div class="member-body-long" id ="long-body-runUntilQuit(initialState)">
+                            <p>Run REPL with <code>state</code> until <code>:quit</code> command found</p>
+<p>This method is the main entry point into the REPL. Its effects are not
+observable outside of the CLI, for this reason, most helper methods are
+<code>protected final</code> to facilitate testing.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="runUntilQuit$default$1" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'runUntilQuit$default$1');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                runUntilQuit$default$1
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../.././api/dotty/tools/repl/State.html">State</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-runUntilQuit$default$1">
                             <p>Run REPL with <code>state</code> until <code>:quit</code> command found</p>
 <p>This method is the main entry point into the REPL. Its effects are not
 observable outside of the CLI, for this reason, most helper methods are
