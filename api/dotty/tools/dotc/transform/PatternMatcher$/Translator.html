@@ -13988,8 +13988,11 @@ List
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-inlineVars(plan)">
-                            <p>Inline let-bound trees that are referenced only once.
-Drop all variables that are not referenced anymore after this.</p>
+                            <p>Inline let-bound trees that are referenced only once and eliminate dead code.</p>
+<ul>
+<li>Drop all variables that are not referenced anymore after inlining.</li>
+<li>Drop the <code>tail</code> of <code>SeqPlan</code>s whose <code>head</code> cannot fall through.</li>
+</ul>
 
                         </div>
                     </div>
