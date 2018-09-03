@@ -11561,6 +11561,24 @@
 
                     <div class="entity-kinds">
                         
+                        <a class="letter-anchor class" href="../../../.././api/dotty/tools/repl/CollectTopLevelImports.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../.././api/dotty/tools/repl/CollectTopLevelImports.html">CollectTopLevelImports</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
                         <a class="letter-anchor trait" href="../../../.././api/dotty/tools/repl/Command.html">T</a>
                     </div>
                     <a class="entity-name" href="../../../.././api/dotty/tools/repl/Command.html">Command</a>
@@ -11598,7 +11616,8 @@
                 
 
                 
-                <li class="">
+                <li id="show-hidden-by-default" onclick="toggleHiddenByDefault(this);">+ expand rest</li>
+                <li class="hidden-by-default ">
                 <!-- end li setter -->
 
                     <div class="entity-kinds">
@@ -11616,7 +11635,6 @@
                 
 
                 
-                <li id="show-hidden-by-default" onclick="toggleHiddenByDefault(this);">+ expand rest</li>
                 <li class="hidden-by-default ">
                 <!-- end li setter -->
 
@@ -12145,12 +12163,17 @@
 
             
             <div id="entity-body" class="entity-section">
-                <p>This subclass of <code>Compiler</code> replaces the appropriate phases in order to
-facilitate the REPL</p>
-<p>Specifically it replaces the front end with <code>REPLFrontEnd</code>, and adds a
-custom subclass of <code>GenBCode</code>. The custom <code>GenBCode</code>, <code>REPLGenBCode</code>, works
-in conjunction with a specialized class loader in order to load virtual
-classfiles.</p>
+                <p>This subclass of <code>Compiler</code> is adapted for use in the REPL.</p>
+<ul>
+<li>compiles parsed expression in the current REPL state:
+<ul>
+<li>adds the appropriate imports in scope</li>
+<li>wraps expressions into a dummy object</li>
+</ul>
+</li>
+<li>provides utility to query the type of an expression</li>
+<li>provides utility to query the documentation of an expression</li>
+</ul>
 
             </div>
             
@@ -12566,9 +12589,9 @@ List
                     </div>
                 </div><!-- end member -->
                 
-                <div id="newRun(initCtx,objectIndex)" class="member ">
+                <div id="newRun(initCtx,state)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'newRun(initCtx,objectIndex)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'newRun(initCtx,state)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12598,9 +12621,9 @@ List
                                     
                                 
                                     <span class="">
-                                        objectIndex:
+                                        state:
                                     </span>
-                                    Int
+                                    <a href="../../../.././api/dotty/tools/repl/State.html">State</a>
                                     
                                 
                             <span class="no-left">)</span>
@@ -12615,7 +12638,7 @@ List
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-newRun(initCtx,objectIndex)">
+                        <div class="member-body-long" id ="long-body-newRun(initCtx,state)">
                             
                         </div>
                     </div>

@@ -11561,6 +11561,24 @@
 
                     <div class="entity-kinds">
                         
+                        <a class="letter-anchor class" href="../../../.././api/dotty/tools/repl/CollectTopLevelImports.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../.././api/dotty/tools/repl/CollectTopLevelImports.html">CollectTopLevelImports</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
                         <a class="letter-anchor trait" href="../../../.././api/dotty/tools/repl/Command.html">T</a>
                     </div>
                     <a class="entity-name" href="../../../.././api/dotty/tools/repl/Command.html">Command</a>
@@ -11598,7 +11616,8 @@
                 
 
                 
-                <li class="">
+                <li id="show-hidden-by-default" onclick="toggleHiddenByDefault(this);">+ expand rest</li>
+                <li class="hidden-by-default ">
                 <!-- end li setter -->
 
                     <div class="entity-kinds">
@@ -11616,7 +11635,6 @@
                 
 
                 
-                <li id="show-hidden-by-default" onclick="toggleHiddenByDefault(this);">+ expand rest</li>
                 <li class="hidden-by-default ">
                 <!-- end li setter -->
 
@@ -12189,6 +12207,41 @@
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-AbstractFileClassLoader">
                             <p>A class loader that loads files from a <code>[[scala.tools.nsc.io.AbstractFile]]</code>.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="CollectTopLevelImports" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'CollectTopLevelImports');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../.././api/dotty/tools/repl/CollectTopLevelImports.html">CollectTopLevelImports</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-CollectTopLevelImports">
+                            <p>A phase that collects user defined top level imports.</p>
+<p>These imports must be collected as typed trees and therefore
+after Typer.</p>
 
                         </div>
                     </div>
@@ -12824,12 +12877,17 @@ specific class loader capable of loading from memory) and rendering them.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-ReplCompiler">
-                            <p>This subclass of <code>Compiler</code> replaces the appropriate phases in order to
-facilitate the REPL</p>
-<p>Specifically it replaces the front end with <code>REPLFrontEnd</code>, and adds a
-custom subclass of <code>GenBCode</code>. The custom <code>GenBCode</code>, <code>REPLGenBCode</code>, works
-in conjunction with a specialized class loader in order to load virtual
-classfiles.</p>
+                            <p>This subclass of <code>Compiler</code> is adapted for use in the REPL.</p>
+<ul>
+<li>compiles parsed expression in the current REPL state:
+<ul>
+<li>adds the appropriate imports in scope</li>
+<li>wraps expressions into a dummy object</li>
+</ul>
+</li>
+<li>provides utility to query the type of an expression</li>
+<li>provides utility to query the documentation of an expression</li>
+</ul>
 
                         </div>
                     </div>
