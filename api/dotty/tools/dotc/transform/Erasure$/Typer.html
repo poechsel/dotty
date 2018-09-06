@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-05 -->
+<!-- This page was last generated on 2018-09-06 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13455,7 +13455,7 @@ parameter of type <code>[]Object</code>.</p>
                             <p>Type check select nodes, applying the following rewritings exhaustively
 on selections <code>e.m</code>, where <code>OT</code> is the type of the owner of <code>m</code> and <code>ET</code>
 is the erased type of the selection's original qualifier expression.</p>
-<pre><code>e.m1 -&gt; e.m2          if `m1` is a member of Any or AnyVal and `m2` is
+<pre><code>e.m1 -&gt; e.m2          if `m1` is a member of a class that erases to Object and `m2` is
                       the same-named member in Object.
 e.m -&gt; box(e).m       if `e` is primitive and `m` is a member or a reference class
                       or `e` has an erased value class type.

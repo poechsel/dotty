@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-05 -->
+<!-- This page was last generated on 2018-09-06 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13757,6 +13757,66 @@ narrowing it with further bounds.</p>
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-unify(p1,p2)">
                             <p>Make p2 = p1, transfer all bounds of p2 to p1</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="widenInferred(tp,bound)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'widenInferred(tp,bound)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                widenInferred
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        tp:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        bound:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-widenInferred(tp,bound)">
+                            <p>Widen inferred type <code>tp</code> with upper bound <code>bound</code>, according to the following rules:
+1. If <code>tp</code> is a singleton type, yet <code>bound</code> is not a singleton type, nor a subtype
+of <code>scala.Singleton</code>, widen <code>tp</code>.
+2. If <code>tp</code> is a union type, yet upper bound is not a union type,
+approximate the union type from above by an intersection of all common base types.</p>
 
                         </div>
                     </div>
