@@ -12644,6 +12644,77 @@ deprecation is meaningless.</p>
                     </div>
                 </div><!-- end member -->
                 
+                <div id="checkParentPrefix(cls,parent)(ctx)" class="member private">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'checkParentPrefix(cls,parent)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            private
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                checkParentPrefix
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        cls:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        parent:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Unit</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-checkParentPrefix(cls,parent)(ctx)">
+                            <p>Disallow using trait parameters as prefix for its parents.</p>
+<p>The rationale is to ensure outer-related NPE never happen in Scala.
+Otherwise, outer NPE may happen, see tests/neg/i5083.scala</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="checkParents(cls)(ctx)" class="member private">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'checkParents(cls)(ctx)');">[+]</span>
