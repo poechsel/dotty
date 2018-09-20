@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -13370,6 +13390,57 @@ signature are conflicting</li>
                     </div>
                 </div><!-- end member -->
                 
+                <div id="constValue(tp)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'constValue(tp)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                constValue
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        tp:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Option
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/core/Constants$/Constant.html">Constant</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-constValue(tp)">
+                            <p>Optionally, the constant <code>c</code> such that <code>tp &lt;:&lt; ConstantType(c)</code></p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="copyIn(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'copyIn(ctx)');">[+]</span>
@@ -13763,6 +13834,121 @@ the two post-constraints subsumes the other.</p>
                             <p>Replace any top-level recursive type <code>{ z =&gt; T }</code> in <code>tp</code> with
 <code>[z := anchor]T</code>.</p>
 
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="gadtBounds(sym)(ctx)" class="member protected">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'gadtBounds(sym)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            protected
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                gadtBounds
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        sym:
+                                    </span>
+                                    Symbol
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/core/Types$/TypeBounds.html">TypeBounds</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-gadtBounds(sym)(ctx)">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="gadtSetBounds(sym,b)" class="member protected">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'gadtSetBounds(sym,b)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            protected
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                gadtSetBounds
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        sym:
+                                    </span>
+                                    Symbol
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        b:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Types$/TypeBounds.html">TypeBounds</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Unit</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-gadtSetBounds(sym,b)">
+                            
                         </div>
                     </div>
                 </div><!-- end member -->
@@ -15276,6 +15462,57 @@ to override <code>tp2</code> ? This is the case if they're pairwise &gt;:&gt;.</
                             <p>Narrow gadt.bounds for the type parameter referenced by <code>tr</code> to include
 <code>bound</code> as an upper or lower bound (which depends on <code>isUpper</code>).
 Test that the resulting bounds are still satisfiable.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="natValue(tp)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'natValue(tp)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                natValue
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        tp:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Option
+<span class="no-left no-right">[</span>
+Int
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-natValue(tp)">
+                            <p>Optionally, the <code>n</code> such that <code>tp &lt;:&lt; ConstantType(Constant(n: Int))</code></p>
 
                         </div>
                     </div>

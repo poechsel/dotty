@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -12155,6 +12175,39 @@
 
             <div id="entity-members" class="entity-section ">
                 
+                <div id="AliasingBounds" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'AliasingBounds');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            abstract
+                        </span>
+                        <span class="member-kind">
+                            class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../.././api/dotty/tools/dotc/core/Types$/AliasingBounds.html">AliasingBounds</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-AliasingBounds">
+                            <p>Common supertype of <code>TypeAlias</code> and <code>MatchAlias</code></p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="AndOrType" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'AndOrType');">[+]</span>
@@ -12709,6 +12762,38 @@ Instances are: LambdaType, RecType.</p>
                     </div>
                 </div><!-- end member -->
                 
+                <div id="CachedMatchType" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'CachedMatchType');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../.././api/dotty/tools/dotc/core/Types$/CachedMatchType.html">CachedMatchType</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-CachedMatchType">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="CachedMethodType" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'CachedMethodType');">[+]</span>
@@ -12963,38 +13048,6 @@ Instances are: LambdaType, RecType.</p>
                         <div class="member-body-long" id ="long-body-CachedType">
                             <p>A marker trait for cached types</p>
 
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="CachedTypeAlias" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'CachedTypeAlias');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            class
-                        </span>
-                        <span class="member-name ">
-                            
-                                <a href="../../../../.././api/dotty/tools/dotc/core/Types$/CachedTypeAlias.html">CachedTypeAlias</a>
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-CachedTypeAlias">
-                            
                         </div>
                     </div>
                 </div><!-- end member -->
@@ -14136,6 +14189,143 @@ MethodOrPoly |   MethodType	     |   PolyType</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-LazyRef$">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="MatchAlias" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'MatchAlias');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../.././api/dotty/tools/dotc/core/Types$/MatchAlias.html">MatchAlias</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-MatchAlias">
+                            <p>= T     where <code>T</code> is a <code>MatchType</code></p>
+<p>Match aliases are treated differently from type aliases. Their sides are mutually
+subtypes of each other but one side is not generally substitutable for the other.
+If we assumed full substitutivity, we would have to reject all recursive match
+aliases (or else take the jump and allow full recursive types).</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="MatchAlias$" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'MatchAlias$');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            object
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../.././api/dotty/tools/dotc/core/Types$/MatchAlias$.html">MatchAlias</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-MatchAlias$">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="MatchType" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'MatchType');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            abstract
+                        </span>
+                        <span class="member-kind">
+                            case class
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../.././api/dotty/tools/dotc/core/Types$/MatchType.html">MatchType</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-MatchType">
+                            <p>scrutinee match { case_1 ... case_n }</p>
+<p>where</p>
+<p>case_i  =   [X1, ..., Xn] patternType =&gt; resultType</p>
+<p>and <code>X_1,...X_n</code> are the type variables bound in <code>patternType</code></p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="MatchType$" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'MatchType$');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            object
+                        </span>
+                        <span class="member-name ">
+                            
+                                <a href="../../../../.././api/dotty/tools/dotc/core/Types$/MatchType$.html">MatchType</a>
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-MatchType$">
                             
                         </div>
                     </div>
@@ -15836,6 +16026,7 @@ represent higher-kinded types.</p>
       |              +- AnnotatedType
       |              +- TypeVar
       |              +- HKTypeLambda
+      |              +- MatchType
       |
       +- GroundType -+- AndType
                      +- OrType
@@ -15889,12 +16080,12 @@ represent higher-kinded types.</p>
                 
                 <div id="TypeAlias" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'TypeAlias');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'TypeAlias');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
                         <span class="member-modifiers">
-                            abstract
+                            
                         </span>
                         <span class="member-kind">
                             class
@@ -15914,7 +16105,8 @@ represent higher-kinded types.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-TypeAlias">
-                            
+                            <p>= T</p>
+
                         </div>
                     </div>
                 </div><!-- end member -->

@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -13518,7 +13538,9 @@ Scala2 files such as <code>scala.collection.generic.Mapfactory</code>.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-toBounds(ctx)">
-                            <p>Turns non-bounds types to type aliases</p>
+                            <p>Turns non-bounds types to type bounds.
+A (possible lambda abstracted) match type is turned into an abstract type.
+Every other type is turned into a type alias</p>
 
                         </div>
                     </div>

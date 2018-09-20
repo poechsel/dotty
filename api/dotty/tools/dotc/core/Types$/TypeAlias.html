@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -12116,7 +12136,7 @@
                     
                 </span>
                 <span id="entity-modifiers">
-                    abstract
+                    
                 </span>
                 <span id="entity-kind">
                     class
@@ -12131,12 +12151,17 @@
                     
                     <span class="keyword">extends</span>
                     
-                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/core/Types$/TypeBounds.html">TypeBounds</a></span>
+                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/core/Types$/AliasingBounds.html">AliasingBounds</a></span>
                     
                 </div>
                 
             </div>
 
+            
+            <div id="entity-body" class="entity-section">
+                <p>= T</p>
+
+            </div>
             
 
             <h1 class="section ">
@@ -12173,14 +12198,14 @@
 
             <div id="entity-members" class="entity-section ">
                 
-                <div id="alias" class="member ">
+                <div id="alias" class="member private">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'alias');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
                         <span class="member-modifiers">
-                            
+                            private
                         </span>
                         <span class="member-kind">
                             val
@@ -12207,57 +12232,9 @@
                     </div>
                 </div><!-- end member -->
                 
-                <div id="computeHash(bs)" class="member ">
+                <div id="derivedAlias(alias)(ctx)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'computeHash(bs)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                computeHash
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        bs:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Hashable$/Binders.html">Binders</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Int</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-computeHash(bs)">
-                            <p>Compute hashcode relative to enclosing binders <code>bs</code></p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="derivedTypeAlias(alias)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'derivedTypeAlias(alias)(ctx)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'derivedAlias(alias)(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12269,7 +12246,7 @@
                         </span>
                         <span class="member-name ">
                             
-                                derivedTypeAlias
+                                derivedAlias
                             
                         </span>
 
@@ -12304,155 +12281,13 @@
                         
 
                         
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/TypeAlias.html">TypeAlias</a></span>
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/AliasingBounds.html">AliasingBounds</a></span>
                         
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-derivedTypeAlias(alias)(ctx)">
-                            <p>pre: this is a type alias</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="eql(that)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'eql(that)');">[+]</span>
-                        <span class="member-annotations">
+                        <div class="member-body-long" id ="long-body-derivedAlias(alias)(ctx)">
                             
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                eql
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        that:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-eql(that)">
-                            <p>Equality used for hash-consing; uses <code>eq</code> on all recursive invocations,
-except where a BindingType is involved. The latter demand a deep isomorphism check.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="iso(that,bs)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'iso(that,bs)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                iso
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        that:
-                                    </span>
-                                    Any
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        bs:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Hashable$/BinderPairs.html">BinderPairs</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-iso(that,bs)">
-                            <p>Is <code>this</code> isomorphic to <code>that</code>, assuming pairs of matching binders <code>bs</code>?
-It is assumed that <code>this.ne(that)</code>.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="stableHash" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'stableHash');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                stableHash
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-stableHash">
-                            <p>Is the <code>hash</code> of this type the same for all possible sequences of enclosing binders?</p>
-
                         </div>
                     </div>
                 </div><!-- end member -->

@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -12106,7 +12126,7 @@
 
 
     <script>
-        document.title = "Dotty Docs - CachedTypeAlias"
+        document.title = "Dotty Docs - MatchAlias"
     </script>
 
     <div id="content-body">
@@ -12122,7 +12142,7 @@
                     class
                 </span>
                 <span id="entity-name">
-                    CachedTypeAlias
+                    MatchAlias
                 </span>
                 
                 
@@ -12131,12 +12151,21 @@
                     
                     <span class="keyword">extends</span>
                     
-                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/core/Types$/TypeAlias.html">TypeAlias</a></span>
+                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/core/Types$/AliasingBounds.html">AliasingBounds</a></span>
                     
                 </div>
                 
             </div>
 
+            
+            <div id="entity-body" class="entity-section">
+                <p>= T     where <code>T</code> is a <code>MatchType</code></p>
+<p>Match aliases are treated differently from type aliases. Their sides are mutually
+subtypes of each other but one side is not generally substitutable for the other.
+If we assumed full substitutivity, we would have to reject all recursive match
+aliases (or else take the jump and allow full recursive types).</p>
+
+            </div>
             
 
             <h1 class="section ">
@@ -12149,7 +12178,7 @@
                     
                     <div class="member">
                         <div class="member-title">
-                            <span class="member-name">CachedTypeAlias</span>
+                            <span class="member-name">MatchAlias</span>
                             <span class="no-left">(</span>
                                 
                                 
@@ -12166,12 +12195,12 @@
                 
             </div>
 
-            <h1 class="section empty">
+            <h1 class="section ">
               <span class="expand-button visible" onclick="toggleMembersBody(this, 'members');">[-]</span>
                 Members
             </h1>
 
-            <div id="entity-members" class="entity-section empty">
+            <div id="entity-members" class="entity-section ">
                 
                 <div id="alias" class="member private">
                     <div class="member-title">
@@ -12202,6 +12231,66 @@
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-alias">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="derivedAlias(alias)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'derivedAlias(alias)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                derivedAlias
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        alias:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/AliasingBounds.html">AliasingBounds</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-derivedAlias(alias)(ctx)">
                             
                         </div>
                     </div>

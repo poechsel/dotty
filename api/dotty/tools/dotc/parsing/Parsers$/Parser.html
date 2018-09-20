@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -12260,6 +12280,44 @@
                     </div>
                 </div><!-- end member -->
                 
+                <div id="caseClause" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'caseClause');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            val
+                        </span>
+                        <span class="member-name ">
+                            
+                                caseClause
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <span>() =&gt; </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/CaseDef.html">CaseDef</a>
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$.html#Untyped">Untyped</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-caseClause">
+                            <p>CaseClause         ::= ‘case’ Pattern [Guard] <code>=&gt;' Block ImplicitCaseClause ::= ‘case’ PatVar [Ascription] [Guard]</code>=&gt;' Block</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="constrApp" class="member ">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'constrApp');">[+]</span>
@@ -13088,6 +13146,44 @@ SimplePattern1   ::= Path
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-source">
                             
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="typeCaseClause" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'typeCaseClause');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            val
+                        </span>
+                        <span class="member-name ">
+                            
+                                typeCaseClause
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <span>() =&gt; </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/CaseDef.html">CaseDef</a>
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$.html#Untyped">Untyped</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-typeCaseClause">
+                            <p>TypeCaseClause     ::= ‘case’ InfixType ‘=&gt;’ Type [nl]</p>
+
                         </div>
                     </div>
                 </div><!-- end member -->
@@ -14388,51 +14484,9 @@ BlockStat    ::= Import
                     </div>
                 </div><!-- end member -->
                 
-                <div id="caseClause()" class="member ">
+                <div id="caseClauses(clause)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'caseClause()');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                caseClause
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#CaseDef">CaseDef</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-caseClause()">
-                            <p>CaseClause         ::= case Pattern [Guard] <code>=&gt;' Block ImplicitCaseClause ::= case PatVar [Ascription] [Guard]</code>=&gt;' Block</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="caseClauses()" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'caseClauses()');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'caseClauses(clause)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -14453,6 +14507,12 @@ BlockStat    ::= Import
                             <span class="no-left">(</span>
                                 
                                 
+                                    <span class="no-left">
+                                        clause:
+                                    </span>
+                                    <span>() =&gt; </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#CaseDef">CaseDef</a>
+                                    
+                                
                             <span class="no-left">)</span>
                             
                         
@@ -14468,9 +14528,10 @@ BlockStat    ::= Import
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-caseClauses()">
+                        <div class="member-body-long" id ="long-body-caseClauses(clause)">
                             <p>CaseClauses         ::= CaseClause {CaseClause}
-ImplicitCaseClauses ::= ImplicitCaseClause {ImplicitCaseClause}</p>
+ImplicitCaseClauses ::= ImplicitCaseClause {ImplicitCaseClause}
+TypeCaseClauses     ::= TypeCaseClause {TypeCaseClause}</p>
 
                         </div>
                     </div>
@@ -19307,6 +19368,65 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                     </div>
                 </div><!-- end member -->
                 
+                <div id="matchType(bound,t)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'matchType(bound,t)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                matchType
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        bound:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        t:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/MatchTypeTree.html">MatchTypeTree</a>
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$.html#Untyped">Untyped</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-matchType(bound,t)">
+                            <p>`match' { TypeCaseClauses }</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="migrationWarningOrError(msg,offset)" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'migrationWarningOrError(msg,offset)');">[+]</span>
@@ -22697,8 +22817,8 @@ FunArgTypes ::=  InfixType
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-typeDefOrDcl(start,mods)">
-                            <p>TypeDef ::= type id [TypeParamClause] `=' Type
-TypeDcl ::= type id [TypeParamClause] TypeBounds</p>
+                            <p>TypeDcl ::=  id [TypeParamClause] (TypeBounds | ‘=’ Type)
+|  id [TypeParamClause] &lt;: Type = MatchType</p>
 
                         </div>
                     </div>

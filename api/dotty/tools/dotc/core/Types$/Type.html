@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -12170,6 +12190,7 @@
       |              +- AnnotatedType
       |              +- TypeVar
       |              +- HKTypeLambda
+      |              +- MatchType
       |
       +- GroundType -+- AndType
                      +- OrType
@@ -12885,74 +12906,6 @@ is covariant is irrelevant, so can be ignored.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="appliedTo(arg1,arg2)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'appliedTo(arg1,arg2)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                appliedTo
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        arg1:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        arg2:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-appliedTo(arg1,arg2)(ctx)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="appliedTo(arg)(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'appliedTo(arg)(ctx)');">[+]</span>
@@ -13075,6 +13028,74 @@ is covariant is irrelevant, so can be ignored.</p>
 <p>T[U1, ..., Un]</p>
 <p>where</p>
 
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="appliedTo(arg1,arg2)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'appliedTo(arg1,arg2)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                appliedTo
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        arg1:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        arg2:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-appliedTo(arg1,arg2)(ctx)">
+                            
                         </div>
                     </div>
                 </div><!-- end member -->
@@ -15879,41 +15900,6 @@ Note: The hkResult of an any-kinded type is again AnyKind.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="isAlias" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'isAlias');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            final
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                isAlias
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-isAlias">
-                            <p>Is this an alias TypeBounds?</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="isArgPrefixOf(symd)(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'isArgPrefixOf(symd)(ctx)');">[+]</span>
@@ -16387,6 +16373,56 @@ from the ThisType of <code>symd</code>'s owner.</p>
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-isLambdaSub(ctx)">
                             <p>Is self type bounded by a type lambda or AnyKind?</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="isMatch(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'isMatch(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                isMatch
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Boolean</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-isMatch(ctx)">
+                            <p>Is this a match type or a higher-kinded abstraction of one?</p>
 
                         </div>
                     </div>
@@ -16962,6 +16998,41 @@ Implemented like <code>isRef</code>, but follows more types: all type proxies as
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-isTopType(ctx)">
                             <p>Is this type exactly Any (no vars, aliases, refinements etc allowed)?</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="isTypeAlias" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'isTypeAlias');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            final
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                isTypeAlias
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Boolean</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-isTypeAlias">
+                            <p>Is this an alias TypeBounds?</p>
 
                         </div>
                     </div>
@@ -18557,6 +18628,57 @@ that has the given type as info.</p>
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-nonPrivateMember(name)(ctx)">
                             <p>The non-private member of this type with the given name.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="normalized(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'normalized(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            final
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                normalized
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-normalized(ctx)">
+                            <p>The result of normalization using <code>tryNormalize</code>, or the type itself if
+tryNormlize yields NoType</p>
 
                         </div>
                     </div>
@@ -20887,7 +21009,9 @@ Symbol
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-toBounds(ctx)">
-                            <p>Turns non-bounds types to type aliases</p>
+                            <p>Turns non-bounds types to type bounds.
+A (possible lambda abstracted) match type is turned into an abstract type.
+Every other type is turned into a type alias</p>
 
                         </div>
                     </div>
@@ -20984,6 +21108,56 @@ Symbol
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-toFunctionType$default$1">
                             <p>Turn type into a function type.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="toNestedPairs(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'toNestedPairs(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                toNestedPairs
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-toNestedPairs(ctx)">
+                            <p>The <code>*:</code> equivalent of an instantce of a Tuple class</p>
 
                         </div>
                     </div>
@@ -21103,6 +21277,58 @@ Symbol
                             <p>Translate a type of the form From[T] to To[T], keep other types as they are.
 <code>from</code> and <code>to</code> must be static classes, both with one type parameter, and the same variance.
 Do the same for by name types =&gt; From[T] and =&gt; To[T]</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="tryNormalize(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'tryNormalize(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                tryNormalize
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-tryNormalize(ctx)">
+                            <p>If this type can be normalized at the top-level by rewriting match types
+of S[n] types, the result after applying all toplevel normalizations,
+otherwise NoType</p>
 
                         </div>
                     </div>

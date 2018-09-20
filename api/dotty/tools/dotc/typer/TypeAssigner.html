@@ -136,6 +136,8 @@
 </li>
 <li><a href="../../../../.././docs/reference/type-lambdas.html">Type lambdas</a>
 </li>
+<li><a href="../../../../.././docs/reference/match-types.html">Match types</a>
+</li>
 <li><a href="../../../../.././docs/reference/implicit-function-types.html">Implicit Function Types</a>
 </li>
 <li><a href="../../../../.././docs/reference/dependent-function-types.html">Dependent Function Types</a></li>
@@ -2588,6 +2590,24 @@
                         <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">C</a>
                     </div>
                     <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TestReporter.html">TestReporter</a>
+                </li>
+
+                
+
+                 <!-- end != "package" -->
+
+            
+                
+
+                
+                <li class="hidden-by-default ">
+                <!-- end li setter -->
+
+                    <div class="entity-kinds">
+                        
+                        <a class="letter-anchor class" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">C</a>
+                    </div>
+                    <a class="entity-name" href="../../../../.././api/dotty/tools/dotc/core/TrackingTypeComparer.html">TrackingTypeComparer</a>
                 </li>
 
                 
@@ -13389,9 +13409,9 @@
                     </div>
                 </div><!-- end member -->
                 
-                <div id="assignType(tree,body)(ctx)" class="member ">
+                <div id="assignType(tree,pat,body)(ctx)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'assignType(tree,body)(ctx)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'assignType(tree,pat,body)(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -13416,6 +13436,14 @@
                                         tree:
                                     </span>
                                     <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#CaseDef">CaseDef</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        pat:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
                                     
                                         <span class="no-left">, </span>
                                     
@@ -13454,15 +13482,15 @@
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-assignType(tree,body)(ctx)">
+                        <div class="member-body-long" id ="long-body-assignType(tree,pat,body)(ctx)">
                             
                         </div>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="assignType(tree,cases)(ctx)" class="member ">
+                <div id="assignType(tree,scrutinee,cases)(ctx)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'assignType(tree,cases)(ctx)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'assignType(tree,scrutinee,cases)(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -13487,6 +13515,14 @@
                                         tree:
                                     </span>
                                     <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Match">Match</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        scrutinee:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
                                     
                                         <span class="no-left">, </span>
                                     
@@ -13528,7 +13564,7 @@
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-assignType(tree,cases)(ctx)">
+                        <div class="member-body-long" id ="long-body-assignType(tree,scrutinee,cases)(ctx)">
                             
                         </div>
                     </div>
@@ -14304,6 +14340,96 @@ Refinements are typed as if they were members of refinement class <code>refineCl
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-assignType(tree,tparamDefs,body)(ctx)">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="assignType(tree,bound,scrutinee,cases)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'assignType(tree,bound,scrutinee,cases)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                assignType
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        tree:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#MatchTypeTree">MatchTypeTree</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        bound:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        scrutinee:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        cases:
+                                    </span>
+                                    List
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#CaseDef">CaseDef</a>
+<span class="no-left">]</span>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/MatchTypeTree.html">MatchTypeTree</a>
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-assignType(tree,bound,scrutinee,cases)(ctx)">
                             
                         </div>
                     </div>
