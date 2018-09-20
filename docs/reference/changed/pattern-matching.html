@@ -12160,12 +12160,22 @@ object FirstChars {
 }
 // First: H; Second: i
 </code></pre>
-<h2><a href="#seq-pattern" id="seq-pattern">Seq Pattern</a></h2>
+<h2><a href="#name-based-seq-pattern" id="name-based-seq-pattern">Name-based Seq Pattern</a></h2>
 <ul>
 <li>Extractor defines <code>def unapplySeq(x: T): U</code></li>
 <li><code>U</code> has (parameterless <code>def</code> or <code>val</code>) members <code>isEmpty: Boolean</code> and <code>get: S</code></li>
-<li><code>S &lt;: Seq[V]</code></li>
-<li>Pattern-matching on <code>N</code> pattern with types <code>V, V, ..., V</code>, where <code>N</code> is the runtime size of the <code>Seq</code>.</li>
+<li><code>S</code> conforms to <code>X</code>, <code>T2</code> and <code>T3</code> conform to <code>T1</code></li>
+</ul>
+<pre><code class="language-Scala">type X = {
+  def lengthCompare(len: Int): Int // or, `def length: Int`
+  def apply(i: Int): T1
+  def drop(n: Int): scala.Seq[T2]
+  def toSeq: scala.Seq[T3]
+}
+</code></pre>
+<ul>
+<li>Pattern-matching on <em>exactly</em> <code>N</code> simple patterns with types <code>T1, T1, ..., T1</code>, where <code>N</code> is the runtime size of the sequence, or</li>
+<li>Pattern-matching on <code>&gt;= N</code> simple patterns and <em>a vararg pattern</em> (e.g., <code>xs: _*</code>) with types <code>T1, T1, ..., T1, Seq[T1]</code>, where <code>N</code> is the minimum size of the sequence.</li>
 </ul>
 <!-- To be kept in sync with tests/new/patmat-spec.scala -->
 <pre><code class="language-scala">object CharList {
@@ -12180,7 +12190,7 @@ object FirstChars {
 }
 // e,x,a,m
 </code></pre>
-<h2><a href="#name-based-pattern" id="name-based-pattern">Name Based Pattern</a></h2>
+<h2><a href="#name-based-pattern" id="name-based-pattern">Name-based Pattern</a></h2>
 <ul>
 <li>Extractor defines <code>def unapply(x: T): U</code></li>
 <li><code>U</code> has (parameterless <code>def</code> or <code>val</code>) members <code>isEmpty: Boolean</code> and <code>get: S</code></li>
