@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12160,7 +12160,7 @@
             
             <div id="entity-body" class="entity-section">
                 <p>Fallback approach if the direct approach does not work: Place the accessor method
-in the same class as the inlined method, and let it take the receiver as parameter.
+in the same class as the inline method, and let it take the receiver as parameter.
 This is tricky, since we have to find a suitable type for the parameter, which might
 require additional type parameters for the inline accessor. An example is in the
 <code>TestPassing</code> class in test <code>run/inline/inlines_1</code>:</p>
@@ -12168,11 +12168,11 @@ require additional type parameters for the inline accessor. An example is in the
 private[inlines] def next[U](y: U): (T, U) = (x, y)
 }
 class TestPassing {
-rewrite def foo[A](x: A): (A, Int) = {
+inline def foo[A](x: A): (A, Int) = {
 val c = new C<a href="#">A</a>
 c.next(1)
 }
-rewrite def bar[A](x: A): (A, String) = {
+inline def bar[A](x: A): (A, String) = {
 val c = new C<a href="#">A</a>
 c.next(&quot;&quot;)
 }</p>

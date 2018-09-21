@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12144,13 +12144,13 @@ splices in exactly the same way.</p>
 operations: quotation and splicing.  Quotation is expressed as
 <code>'(...)</code> or <code>'{...}</code> for expressions (both forms are equivalent) and
 as <code>'[...]</code> for types. Splicing is expressed as a prefix <code>~</code> operator.</p>
-<p>For example, the code below presents a rewrite function <code>assert</code>
+<p>For example, the code below presents an inline function <code>assert</code>
 which calls at compile-time a method <code>assertImpl</code> with a boolean
 expression tree as argument. <code>assertImpl</code> evaluates the expression and
 prints it again in an error message if it evaluates to <code>false</code>.</p>
 <pre><code>import scala.quoted._
 
-rewrite def assert(expr: =&gt; Boolean): Unit =
+inline def assert(expr: =&gt; Boolean): Unit =
   ~ assertImpl('(expr))
 
 def assertImpl(expr: Expr[Boolean]) =
@@ -12313,9 +12313,9 @@ In fact Scala 2's type tag feature can be understood as a more ad-hoc version of
 <code>quoted.Type</code>. As was the case for type tags, the implicit search for a <code>quoted.Type</code>
 is handled by the compiler, using the algorithm sketched above.</p>
 <h3><a href="#example-expansion" id="example-expansion">Example Expansion</a></h3>
-<p>Assume an <code>Array</code> class with a rewrite <code>map</code> method that forwards to a macro implementation.</p>
+<p>Assume an <code>Array</code> class with an inline <code>map</code> method that forwards to a macro implementation.</p>
 <pre><code>class Array[T] {
-  rewrite def map[U](f: T =&gt; U): Array[U] = ~ Macros.mapImpl[T, U]('[U], '(this), '(f))
+  inline def map[U](f: T =&gt; U): Array[U] = ~ Macros.mapImpl[T, U]('[U], '(this), '(f))
 }
 </code></pre>
 <p>Here’s the definition of the <code>mapImpl</code> macro, which takes quoted types and expressions to a quoted expression:</p>
@@ -12389,17 +12389,17 @@ val f: Int =&gt; Int = x =&gt; x + 1
   ys
 }
 </code></pre>
-<h3><a href="#relationship-with-transparent-and-macros" id="relationship-with-transparent-and-macros">Relationship with Transparent and Macros</a></h3>
+<h3><a href="#relationship-with-inline-and-macros" id="relationship-with-inline-and-macros">Relationship with Inline and Macros</a></h3>
 <p>Seen by itself, principled meta-programming looks more like a
 framework for staging than one for compile-time meta programming with
-macros. But combined with Dotty’s <code>rewrite</code> feature it can be turned into a
+macros. But combined with Dotty’s <code>inline</code> feature it can be turned into a
 compile-time system.  The idea is that macro elaboration can be
 understood as a combination of a macro library and a quoted
 program. For instance, here’s the <code>assert</code> macro again together with a
 program that calls <code>assert</code>.</p>
 <pre><code>object Macros {
 
-  rewrite def assert(expr: =&gt; Boolean): Unit =
+  inline def assert(expr: =&gt; Boolean): Unit =
     ~ assertImpl('(expr))
 
   def assertImpl(expr: Expr[Boolean]) =
@@ -12443,7 +12443,7 @@ should be treated by the compiler as if it was quoted:</p>
 <code>Macro.assertImpl</code> becomes phase correct even if macro library and
 program are conceptualized as local definitions.</p>
 <p>But what about the call from <code>assert</code> to <code>assertImpl</code>? Here, we need a
-tweak of the typing rules. A rewrite function such as <code>assert</code> that
+tweak of the typing rules. An inline function such as <code>assert</code> that
 contains a splice operation outside an enclosing quote is called a
 <em>macro</em>. Macros are supposed to be expanded in a subsequent phase,
 i.e. in a quoted context. Therefore, they are also type checked as if
@@ -12451,12 +12451,12 @@ they were in a quoted context. For instance, the definition of
 <code>assert</code> is typechecked as if it appeared inside quotes.  This makes
 the call from <code>assert</code> to <code>assertImpl</code> phase-correct, even if we
 assume that both definitions are local.</p>
-<p>The <code>transparent</code> modifier is used to declare a <code>val</code> that is
+<p>The <code>inline</code> modifier is used to declare a <code>val</code> that is
 either a constant or is a parameter that will be a constant when instantiated. This
 aspect is also important for macro expansion.  To illustrate this,
 consider an implementation of the <code>power</code> function that makes use of a
 statically known exponent:</p>
-<pre><code>rewrite def power(transparent n: Int, x: Double) = ~powerCode(n, '(x))
+<pre><code>inline def power(inline n: Int, x: Double) = ~powerCode(n, '(x))
 
 private def powerCode(n: Int, x: Expr[Double]): Expr[Double] =
   if (n == 0) '(1.0)
@@ -12468,13 +12468,13 @@ private def powerCode(n: Int, x: Expr[Double]): Expr[Double] =
 phase-consistent, since <code>n</code> appears in a splice without an enclosing
 quote. Normally that would be a problem because it means that we need
 the <em>value</em> of <code>n</code> at compile time, which is not available for general
-parameters. But since <code>n</code> is a transparent parameter of a macro, we know
+parameters. But since <code>n</code> is a inline parameter of a macro, we know
 that at the macro’s expansion point <code>n</code> will be instantiated to a
 constant, so the value of <code>n</code> will in fact be known at this
 point. To reflect this, we loosen the phase consistency requirements
 as follows:</p>
 <ul>
-<li>If <code>x</code> is a transparent value (or a transparent parameter of a rewrite
+<li>If <code>x</code> is a inline value (or a inline parameter of an inline
 function) of type Boolean, Byte, Short, Int, Long, Float, Double,
 Char or String, it can be accessed in all contexts where the number
 of splices minus the number of quotes between use and definition
@@ -12513,12 +12513,12 @@ it is even more difficult to make that interpreter run efficiently. So
 we currently impose the following restrictions on the use of splices.</p>
 <ol>
 <li>
-<p>A top-level splice must appear in a rewrite method (turning that method
+<p>A top-level splice must appear in an inline method (turning that method
 into a macro)</p>
 </li>
 <li>
 <p>The splice must call a previously compiled
-method passing quoted arguments, constant arguments or transparent arguments.</p>
+method passing quoted arguments, constant arguments or inline arguments.</p>
 </li>
 <li>
 <p>Splices inside splices (but no intervening quotes) are not allowed.</p>
@@ -12798,13 +12798,13 @@ is studied <a href="simple-smp.html">separately</a>.</p>
 <p>The meta-programming framework as presented and currently implemented is quite restrictive
 in that it does not allow for the inspection of quoted expressions and
 types. It’s possible to work around this by providing all necessary
-information as normal, unquoted transparent parameters. But we would gain
+information as normal, unquoted inline parameters. But we would gain
 more flexibility by allowing for the inspection of quoted code with
 pattern matching. This opens new possibilities. For instance, here is a
 version of <code>power</code> that generates the multiplications directly if the
 exponent is statically known and falls back to the dynamic
 implementation of power otherwise.</p>
-<pre><code>rewrite def power(n: Int, x: Double): Double = ~{
+<pre><code>inline def power(n: Int, x: Double): Double = ~{
   '(n) match {
     case Constant(n1) =&gt; powerCode(n1, '(x))
     case _ =&gt; '{ dynamicPower(n, x) }

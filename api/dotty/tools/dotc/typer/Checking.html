@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12980,9 +12980,9 @@ argument is infeasible, issue and error and continue with upper bound.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="checkInRewriteContext(what,pos)(ctx)" class="member ">
+                <div id="checkInInlineContext(what,pos)(ctx)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'checkInRewriteContext(what,pos)(ctx)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'checkInInlineContext(what,pos)(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12994,7 +12994,7 @@ argument is infeasible, issue and error and continue with upper bound.</p>
                         </span>
                         <span class="member-name ">
                             
-                                checkInRewriteContext
+                                checkInInlineContext
                             
                         </span>
 
@@ -13042,8 +13042,85 @@ argument is infeasible, issue and error and continue with upper bound.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-checkInRewriteContext(what,pos)(ctx)">
-                            <p>Check that we are in a rewrite context (inside a rewrite method or in inlined code)</p>
+                        <div class="member-body-long" id ="long-body-checkInInlineContext(what,pos)(ctx)">
+                            <p>Check that we are in an inline context (inside an inline method or in inline code)</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="checkInlineConformant(tree,isFinal,what)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'checkInlineConformant(tree,isFinal,what)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                checkInlineConformant
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        tree:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        isFinal:
+                                    </span>
+                                    Boolean
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        what: =&gt;
+                                    </span>
+                                    String
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Unit</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-checkInlineConformant(tree,isFinal,what)(ctx)">
+                            <p>Check that <code>tree</code> can be right hand-side or argument to <code>inline</code> value or parameter.</p>
 
                         </div>
                     </div>
@@ -13914,83 +13991,6 @@ traits. E.g. the following is OK:</p>
 <pre><code>... extends Any with java.io.Serializable
 </code></pre>
 <p>The standard library relies on this idiom.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="checkTransparentConformant(tree,isFinal,what)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'checkTransparentConformant(tree,isFinal,what)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                checkTransparentConformant
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        isFinal:
-                                    </span>
-                                    Boolean
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        what: =&gt;
-                                    </span>
-                                    String
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Unit</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-checkTransparentConformant(tree,isFinal,what)(ctx)">
-                            <p>Check that <code>tree</code> can right hand-side or argument to <code>transparent</code> value or parameter.</p>
 
                         </div>
                     </div>

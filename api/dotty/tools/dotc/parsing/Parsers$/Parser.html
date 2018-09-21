@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12424,7 +12424,7 @@ FunParams         ::=  Bindings
 |  Expr
 BlockResult       ::=  [FunArgMods] FunParams =&gt;' Block
 |  Expr1
-Expr1             ::=  [‘rewrite’] <code>if'</code>(' Expr <code>)' {nl} Expr [[semi] else Expr] | [‘rewrite’]</code>if' Expr <code>then' Expr [[semi] else Expr] |</code>while' <code>(' Expr</code>)' {nl} Expr
+Expr1             ::=  [‘inline’] <code>if'</code>(' Expr <code>)' {nl} Expr [[semi] else Expr] | [‘inline’]</code>if' Expr <code>then' Expr [[semi] else Expr] |</code>while' <code>(' Expr</code>)' {nl} Expr
 |  <code>while' Expr</code>do' Expr
 |  <code>do' Expr [semi]</code>while' Expr
 |  <code>try' Expr Catches [</code>finally' Expr]
@@ -12432,7 +12432,7 @@ Expr1             ::=  [‘rewrite’] <code>if'</code>(' Expr <code>)' {nl} Exp
 |  <code>throw' Expr |</code>return' [Expr]
 |  ForExpr
 |  [SimpleExpr <code>.'] id</code>=' Expr
-|  SimpleExpr1 ArgumentExprs <code>=' Expr | PostfixExpr [Ascription] | [‘rewrite’] PostfixExpr</code>match' <code>{' CaseClauses</code>}'
+|  SimpleExpr1 ArgumentExprs <code>=' Expr | PostfixExpr [Ascription] | [‘inline’] PostfixExpr</code>match' <code>{' CaseClauses</code>}'
 |  <code>implicit'</code>match' <code>{' ImplicitCaseClauses</code>}'
 Bindings          ::= <code>(' [Binding {</code>,' Binding}] <code>)' Binding ::= (id |</code>_') [<code>:' Type] Ascription ::=</code>:' CompoundType
 | <code>:' Annotation {Annotation} |</code>:' <code>_'</code>*'</p>
@@ -19558,9 +19558,9 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                     </div>
                 </div><!-- end member -->
                 
-                <div id="modOfToken(tok)" class="member private">
+                <div id="modOfToken(tok,name)" class="member private">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'modOfToken(tok)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'modOfToken(tok,name)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -19586,6 +19586,14 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                                     </span>
                                     Int
                                     
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        name:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Names$/Name.html">Name</a>
+                                    
                                 
                             <span class="no-left">)</span>
                             
@@ -19599,7 +19607,7 @@ are a prefix of the characters between the preceding end-of-line and offset2.</p
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-modOfToken(tok)">
+                        <div class="member-body-long" id ="long-body-modOfToken(tok,name)">
                             
                         </div>
                     </div>
@@ -19662,7 +19670,7 @@ AccessModifier ::= (private | protected) [AccessQualifier]
 Modifier       ::= LocalModifier
 |  AccessModifier
 |  override
-LocalModifier  ::= abstract | final | sealed | implicit | lazy</p>
+LocalModifier  ::= abstract | final | sealed | implicit | lazy | erased | inline</p>
 
                         </div>
                     </div>
@@ -19704,7 +19712,7 @@ AccessModifier ::= (private | protected) [AccessQualifier]
 Modifier       ::= LocalModifier
 |  AccessModifier
 |  override
-LocalModifier  ::= abstract | final | sealed | implicit | lazy</p>
+LocalModifier  ::= abstract | final | sealed | implicit | lazy | erased | inline</p>
 
                         </div>
                     </div>
@@ -19746,7 +19754,7 @@ AccessModifier ::= (private | protected) [AccessQualifier]
 Modifier       ::= LocalModifier
 |  AccessModifier
 |  override
-LocalModifier  ::= abstract | final | sealed | implicit | lazy</p>
+LocalModifier  ::= abstract | final | sealed | implicit | lazy | erased | inline</p>
 
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13084,7 +13084,7 @@ Unit
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-levelOK(sym)(ctx)">
                             <p>Does the level of <code>sym</code> match the current level?
-An exception is made for transparent vals in macros. These are also OK if their level
+An exception is made for inline vals in macros. These are also OK if their level
 is one higher than the current level, because on execution such values
 are constant expression trees and we can pull out the constant from the tree.</p>
 
@@ -13653,7 +13653,7 @@ core and splices as arguments.</p>
                         <div class="member-body-long" id ="long-body-splice(splice)(ctx)">
                             <p>If inside a quote, split the body of the splice into a core and a list of embedded quotes
 and make a hole from these parts. Otherwise issue an error, unless we
-are in the body of a rewrite method.</p>
+are in the body of an inline method.</p>
 
                         </div>
                     </div>

@@ -423,16 +423,16 @@ pattern reduction can &quot;see inside&quot; the method by expanding it. But the
 <p>Transparent methods are regular methods that can be called at runtime. But when an application of a transparent method occurs in the inlined body of a rewrite method,
 the method is itself inlined, just like if it had been marked <code>rewrite</code>.</p>
 <h2><a href="#transparent-values" id="transparent-values">Transparent Values</a></h2>
-<p>Value definitions can also be marked <code>transparent</code>. Examples:</p>
-<pre><code class="language-scala">transparent val label      = &quot;url&quot;
-transparent val pi: Double = 3.14159265359
+<p>Value definitions can also be marked <code>inline</code>. Examples:</p>
+<pre><code class="language-scala">inline val label      = &quot;url&quot;
+inline val pi: Double = 3.14159265359
 </code></pre>
-<p>The right hand side of a  <code>transparent</code> value definition must be a pure expression of constant type. The type of the value is then the type of its right hand side, without any widenings. For instance, the type of <code>label</code> above is the singleton type <code>&quot;url&quot;</code> instead of <code>String</code> and the type of <code>pi</code> is <code>3.14159265359</code> instead of <code>Double</code>.</p>
+<p>The right hand side of a  <code>inline</code> value definition must be a pure expression of constant type. The type of the value is then the type of its right hand side, without any widenings. For instance, the type of <code>label</code> above is the singleton type <code>&quot;url&quot;</code> instead of <code>String</code> and the type of <code>pi</code> is <code>3.14159265359</code> instead of <code>Double</code>.</p>
 <p>Transparent values are effectively final; they may not be overridden. In Scala-2, constant values had to be expressed using <code>final</code>, which gave an unfortunate double meaning to the modifier. The <code>final</code> syntax is still supported in Scala 3 for a limited time to support cross-building.</p>
-<p>The <code>transparent</code> modifier can also be used for value parameters of <code>rewrite</code> methods. Example</p>
-<pre><code class="language-scala">rewrite def power(x: Double, transparent n: Int) = ...
+<p>The <code>inline</code> modifier can also be used for value parameters of <code>rewrite</code> methods. Example</p>
+<pre><code class="language-scala">rewrite def power(x: Double, inline n: Int) = ...
 </code></pre>
-<p>If a <code>transparent</code> modifier is given, corresponding arguments must be pure expressions of constant type.</p>
+<p>If a <code>inline</code> modifier is given, corresponding arguments must be pure expressions of constant type.</p>
 <p>However, the restrictions on right-hand sides or arguments mentioned in this section do not apply in code that is
 itself in a <code>rewrite</code> method. In other words, constantness checking is performed only when a <code>transparent</code> method
 is expanded, not when it is defined.</p>

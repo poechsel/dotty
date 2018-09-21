@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13970,7 +13970,7 @@ run/reducable.scala is a test case that shows stripping typevars is necessary.</
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-patchFinalVals(vdef)(ctx)">
-                            <p>Adds transparent to final vals with idempotent rhs</p>
+                            <p>Adds inline to final vals with idempotent rhs</p>
 <p>duplicating scalac behavior: for final vals that have rhs as constant, we do not create a field
 and instead return the value. This seemingly minor optimization has huge effect on initialization
 order and the values that can be observed during superconstructor call</p>

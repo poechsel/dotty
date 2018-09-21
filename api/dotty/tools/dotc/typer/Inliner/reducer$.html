@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12503,9 +12503,9 @@ refs among the ei's directly without creating an intermediate binding.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="reduceProjection(tree)(ctx)" class="member ">
+                <div id="reduceInlineMatch(scrutinee,scrutType,cases,typer)(ctx)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'reduceProjection(tree)(ctx)');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'reduceInlineMatch(scrutinee,scrutType,cases,typer)(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12517,71 +12517,7 @@ refs among the ei's directly without creating an intermediate binding.</p>
                         </span>
                         <span class="member-name ">
                             
-                                reduceProjection
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-reduceProjection(tree)(ctx)">
-                            <p>If <code>tree</code> is equivalent to <code>new C(args).x</code> where class <code>C</code> does not have
-initialization code and <code>x</code> is a parameter corresponding to one of the
-arguments <code>args</code>, the corresponding argument, otherwise <code>tree</code> itself.
-Side effects of original arguments need to be preserved.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="reduceRewriteMatch(scrutinee,scrutType,cases,typer)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'reduceRewriteMatch(scrutinee,scrutType,cases,typer)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                reduceRewriteMatch
+                                reduceInlineMatch
                             
                         </span>
 
@@ -12648,8 +12584,72 @@ Side effects of original arguments need to be preserved.</p>
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-reduceRewriteMatch(scrutinee,scrutType,cases,typer)(ctx)">
-                            <p>Reduce a rewrite match</p>
+                        <div class="member-body-long" id ="long-body-reduceInlineMatch(scrutinee,scrutType,cases,typer)(ctx)">
+                            <p>Reduce an inline match</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="reduceProjection(tree)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'reduceProjection(tree)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                reduceProjection
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        tree:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-reduceProjection(tree)(ctx)">
+                            <p>If <code>tree</code> is equivalent to <code>new C(args).x</code> where class <code>C</code> does not have
+initialization code and <code>x</code> is a parameter corresponding to one of the
+arguments <code>args</code>, the corresponding argument, otherwise <code>tree</code> itself.
+Side effects of original arguments need to be preserved.</p>
 
                         </div>
                     </div>

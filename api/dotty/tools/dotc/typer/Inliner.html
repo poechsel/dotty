@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-20 -->
+<!-- This page was last generated on 2018-09-21 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13238,7 +13238,7 @@ itself, it has to be marked as an inlined argument.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-paramBindingDef(name,paramtp,arg,bindingsBuf)">
-                            <p>A binding for the parameter of an inlined method. This is a <code>val</code> def for
+                            <p>A binding for the parameter of an inline method. This is a <code>val</code> def for
 by-value parameters and a <code>def</code> def for by-name parameters. <code>val</code> defs inherit
 inline annotations from their parameters. The generated <code>def</code> is appended
 to <code>bindingsBuf</code>.</p>
@@ -13340,7 +13340,7 @@ to <code>bindingsBuf</code>.</p>
                             <p>Populate <code>thisProxy</code> and <code>paramProxy</code> as follows:</p>
 <p>1a. If given type refers to a static this, thisProxy binds it to corresponding global reference,
 1b. If given type refers to an instance this to a class that is not contained in the
-inlined method, create a proxy symbol and bind the thistype to refer to the proxy.
+inline method, create a proxy symbol and bind the thistype to refer to the proxy.
 The proxy is not yet entered in <code>bindingsBuf</code>; that will come later.
 2.  If given type refers to a parameter, make <code>paramProxy</code> refer to the entry stored
 in <code>paramNames</code> under the parameter's name. This roundabout way to bind parameter
