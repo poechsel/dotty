@@ -1,4 +1,4 @@
-<!-- This page was last generated on 2018-09-25 -->
+<!-- This page was last generated on 2018-09-26 -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12153,11 +12153,6 @@
                     
                     <span class="entity-super-type"><a href="../../../../.././api/dotty/tools/dotc/transform/MegaPhase$/MiniPhase.html">MiniPhase</a></span>
                     
-                    
-                    <span class="keyword">with</span>
-                    
-                    <span class="entity-super-type"><a href="../../../../.././api/dotty/tools/dotc/transform/FullParameterization.html">FullParameterization</a></span>
-                    
                 </div>
                 
             </div>
@@ -12263,47 +12258,9 @@
                     </div>
                 </div><!-- end member -->
                 
-                <div id="methodsWithInnerAnnots" class="member private">
+                <div id="mkLabel(method)(ctx)" class="member private">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'methodsWithInnerAnnots');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            private
-                        </span>
-                        <span class="member-kind">
-                            val
-                        </span>
-                        <span class="member-name ">
-                            
-                                methodsWithInnerAnnots
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: HashSet
-<span class="no-left no-right">[</span>
-<a href="../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
-<span class="no-left">]</span></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-methodsWithInnerAnnots">
-                            <p>Symbols of methods that have @tailrec annotatios inside</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="mkLabel(method,abstractOverClass)(ctx)" class="member private">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'mkLabel(method,abstractOverClass)(ctx)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'mkLabel(method)(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12328,14 +12285,6 @@
                                         method:
                                     </span>
                                     <a href="../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        abstractOverClass:
-                                    </span>
-                                    Boolean
                                     
                                 
                             <span class="no-left">)</span>
@@ -12363,7 +12312,7 @@
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-mkLabel(method,abstractOverClass)(ctx)">
+                        <div class="member-body-long" id ="long-body-mkLabel(method)(ctx)">
                             
                         </div>
                     </div>
@@ -12402,77 +12351,6 @@
 instance, it is possible to print trees after a given phase using:</p>
 <pre><code class="language-bash">$ ./bin/dotc -Xprint:&lt;phaseNameHere&gt; sourceFile.scala
 </code></pre>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="rewiredTarget(target,derived)(ctx)" class="member protected">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'rewiredTarget(target,derived)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            protected override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                rewiredTarget
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        target:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        derived:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-rewiredTarget(target,derived)(ctx)">
-                            <p>If references to original <code>target</code> from fully parameterized method <code>derived</code> should be
-rewired to some fully parameterized method, that method symbol,
-otherwise NoSymbol.</p>
 
                         </div>
                     </div>
@@ -12571,126 +12449,6 @@ String
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-transformDefDef(tree)(ctx)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="transformTyped(tree)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'transformTyped(tree)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                transformTyped
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Typed">Typed</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-transformTyped(tree)(ctx)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="transformUnit(tree)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'transformUnit(tree)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                transformUnit
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-transformUnit(tree)(ctx)">
                             
                         </div>
                     </div>
