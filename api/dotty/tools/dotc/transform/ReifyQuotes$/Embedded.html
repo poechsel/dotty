@@ -110,7 +110,7 @@
         
         <li><a href="../../../../../.././blog/index.html">Blog</a></li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Usage</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Usage</a>
 <ul id="">
     <li><a href="../../../../../.././docs/usage/getting-started.html">Getting Started</a>
 </li>
@@ -124,11 +124,11 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Reference</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Reference</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/overview.html">Overview</a>
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>New Types</a>
+<li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>New Types</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/intersection-types.html">Intersection types</a>
 </li>
@@ -144,7 +144,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Enums</a>
+<li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Enums</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/enums/enums.html">Enumerations</a>
 </li>
@@ -154,7 +154,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Other New Features</a>
+<li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Other New Features</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/multiversal-equality.html">Multiversal Equality</a>
 </li>
@@ -176,7 +176,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Changed Features</a>
+<li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Changed Features</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/changed/lazy-vals.html">Volatile Lazy Vals</a>
 </li>
@@ -200,7 +200,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Dropped Features</a>
+<li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Dropped Features</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/dropped/delayed-init.html">DelayedInit</a>
 </li>
@@ -228,7 +228,7 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Contributing</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Contributing</a>
 <ul id="">
     <li><a href="../../../../../.././docs/contributing/getting-started.html">Getting Started</a>
 </li>
@@ -244,7 +244,7 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Internals</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Internals</a>
 <ul id="">
     <li><a href="../../../../../.././docs/internals/backend.html">Backend</a>
 </li>
@@ -270,7 +270,7 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "Flags$");'>Resources</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "ReifyQuotes$");'>Resources</a>
 <ul id="">
     <li><a href="../../../../../.././docs/resources/talks.html">Talks</a></li>
 </ul>
@@ -12126,7 +12126,7 @@
 
 
     <script>
-        document.title = "Dotty Docs - FlagConjunction"
+        document.title = "Dotty Docs - Embedded"
     </script>
 
     <div id="content-body">
@@ -12139,10 +12139,10 @@
                     
                 </span>
                 <span id="entity-kind">
-                    case class
+                    class
                 </span>
                 <span id="entity-name">
-                    FlagConjunction
+                    Embedded
                 </span>
                 
                 
@@ -12153,22 +12153,10 @@
                     
                     <span class="entity-super-type">Object</span>
                     
-                    
-                    <span class="keyword">with</span>
-                    
-                    <span class="entity-super-type">Product</span>
-                    
                 </div>
                 
             </div>
 
-            
-            <div id="entity-body" class="entity-section">
-                <p>A class representing flag sets that should be tested
-conjunctively. I.e. for a flag conjunction <code>fc</code>,
-<code>x is fc</code> tests whether <code>x</code> contains all flags in <code>fc</code>.</p>
-
-            </div>
             
 
             <h1 class="section ">
@@ -12181,32 +12169,28 @@ conjunctively. I.e. for a flag conjunction <code>fc</code>,
                     
                     <div class="member">
                         <div class="member-title">
-                            <span class="member-name">FlagConjunction</span>
+                            <span class="member-name">Embedded</span>
                             <span class="no-left">(</span>
                                 
                                 
                                     <span class="no-left">
-                                        bits:
+                                        trees:
                                     </span>
-                                    Long
+                                    ListBuffer
+<span class="no-left no-right">[</span>
+Tree
+<span class="no-left">]</span>
+                                    
+                                        <span class="no-left">, </span>
                                     
                                 
-                            <span class="no-left">)</span>
-                        </div>
-                    </div>
-                    
-                
-                    
-                    <div class="member">
-                        <div class="member-title">
-                            <span class="member-name">FlagConjunction</span>
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        bits:
+                                    <span class="">
+                                        map:
                                     </span>
-                                    Long
+                                    Map
+<span class="no-left no-right">[</span>
+Symbol<span class="">, </span>Tree
+<span class="no-left">]</span>
                                     
                                 
                             <span class="no-left">)</span>
@@ -12223,21 +12207,21 @@ conjunctively. I.e. for a flag conjunction <code>fc</code>,
 
             <div id="entity-members" class="entity-section ">
                 
-                <div id="bits" class="member ">
+                <div id="map" class="member private">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'bits');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'map');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
                         <span class="member-modifiers">
-                            
+                            private
                         </span>
                         <span class="member-kind">
                             val
                         </span>
                         <span class="member-name ">
                             
-                                bits
+                                map
                             
                         </span>
 
@@ -12246,543 +12230,35 @@ conjunctively. I.e. for a flag conjunction <code>fc</code>,
                         
 
                         
-                        <span class="no-left">: Long</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-bits">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="&(that)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, '&(that)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                &
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        that:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-&(that)">
-                            <p>The intersection of this flag set and the given flag set</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="&~(that)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, '&~(that)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                &~
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        that:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-&~(that)">
-                            <p>The intersection of this flag set with the complement of the given flag set</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="<=(that)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, '<=(that)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                <=
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        that:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-<=(that)">
-                            <p>Is this flag set a subset of that one?</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="canEqual(that)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'canEqual(that)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                canEqual
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        that:
-                                    </span>
-                                    Any
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-canEqual(that)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="firstBit" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'firstBit');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                firstBit
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Int</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-firstBit">
-                            <p>The lowest non-kind bit set in this flagset</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="flagStrings" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'flagStrings');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                flagStrings
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Seq
+                        <span class="no-left">: Map
 <span class="no-left no-right">[</span>
-String
+<a href="../../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a><span class="">, </span><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
 <span class="no-left">]</span></span>
                         
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-flagStrings">
-                            <p>The list of non-empty names of flags that are set in this FlagSet</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="is(flags,butNot)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'is(flags,butNot)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                is
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        flags:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        butNot:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-is(flags,butNot)">
-                            <p>Does this flag set have a non-empty intersection with the given flag set,
-and at the same time contain none of the flags in the <code>butNot</code> set?</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="is(flags)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'is(flags)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                is
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        flags:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagConjunction.html">FlagConjunction</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-is(flags)">
-                            <p>Does this flag set have all of the flags in given flag conjunction?
-Pre: The intersection of the typeflags of both sets must be non-empty.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="is(flags,butNot)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'is(flags,butNot)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                is
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        flags:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagConjunction.html">FlagConjunction</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        butNot:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-is(flags,butNot)">
-                            <p>Does this flag set have all of the flags in given flag conjunction?
-and at the same time contain none of the flags in the <code>butNot</code> set?
-Pre: The intersection of the typeflags of both sets must be non-empty.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="is(flags)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'is(flags)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                is
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        flags:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-is(flags)">
-                            <p>Does this flag set have a non-empty intersection with the given flag set?
-This means that both the kind flags and the carrier bits have non-empty intersection.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="isEmpty" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'isEmpty');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                isEmpty
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-isEmpty">
+                        <div class="member-body-long" id ="long-body-map">
                             
                         </div>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="isTermFlags" class="member ">
+                <div id="trees" class="member private">
                     <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'isTermFlags');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'trees');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
                         <span class="member-modifiers">
-                            
+                            private
                         </span>
                         <span class="member-kind">
-                            def
+                            val
                         </span>
                         <span class="member-name ">
                             
-                                isTermFlags
+                                trees
                             
                         </span>
 
@@ -12791,209 +12267,23 @@ This means that both the kind flags and the carrier bits have non-empty intersec
                         
 
                         
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-isTermFlags">
-                            <p>Does this flag set apply to terms?</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="isTypeFlags" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'isTypeFlags');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                isTypeFlags
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Boolean</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-isTypeFlags">
-                            <p>Does this flag set apply to terms?</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="numFlags" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'numFlags');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                numFlags
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Int</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-numFlags">
-                            <p>The number of non-kind flags in this set</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="productArity" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'productArity');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                productArity
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Int</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-productArity">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="productElement(n)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'productElement(n)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                productElement
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        n:
-                                    </span>
-                                    Int
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Any</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-productElement(n)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="productIterator" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'productIterator');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                productIterator
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Iterator
+                        <span class="no-left">: ListBuffer
 <span class="no-left no-right">[</span>
-Any
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
 <span class="no-left">]</span></span>
                         
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-productIterator">
+                        <div class="member-body-long" id ="long-body-trees">
                             
                         </div>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="productPrefix" class="member ">
+                <div id="addTree(tree,liftedSym)" class="member ">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'productPrefix');">[+]</span>
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'addTree(tree,liftedSym)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -13005,215 +12295,7 @@ Any
                         </span>
                         <span class="member-name ">
                             
-                                productPrefix
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: String</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-productPrefix">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="toCommonFlags" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'toCommonFlags');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                toCommonFlags
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-toCommonFlags">
-                            <p>This flag set with all flags transposed to be common flags</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="toString" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'toString');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                toString
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: String</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-toString">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="toString" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'toString');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                toString
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: String</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-toString">
-                            <p>The string representation of this flag set</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="toTermFlags" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'toTermFlags');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                toTermFlags
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-toTermFlags">
-                            <p>This flag set with all flags transposed to be term flags</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="toTypeFlags" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'toTypeFlags');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                toTypeFlags
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-toTypeFlags">
-                            <p>This flag set with all flags transposed to be type flags</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="|(that)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, '|(that)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                |
+                                addTree
                             
                         </span>
 
@@ -13223,9 +12305,17 @@ Any
                                 
                                 
                                     <span class="no-left">
-                                        that:
+                                        tree:
                                     </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        liftedSym:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Symbols$/Symbol.html">Symbol</a>
                                     
                                 
                             <span class="no-left">)</span>
@@ -13235,16 +12325,112 @@ Any
                         
 
                         
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a></span>
+                        <span class="no-left">: Int</span>
                         
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-|(that)">
-                            <p>The union of this flag set and the given flag set
-Combining two FlagSets with <code>|</code> will give a FlagSet
-that has the intersection of the applicability to terms/types
-of the two flag sets. It is checked that the intersection is not empty.</p>
+                        <div class="member-body-long" id ="long-body-addTree(tree,liftedSym)">
+                            <p>Adds the tree and returns it's index</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="getHoleType(splice)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'getHoleType(splice)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                getHoleType
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        splice:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Select">Select</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-getHoleType(splice)(ctx)">
+                            <p>Type used for the hole that will replace this splice</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="getTrees" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'getTrees');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                getTrees
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: List
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-getTrees">
+                            <p>Get the list of embedded trees</p>
 
                         </div>
                     </div>
