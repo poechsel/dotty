@@ -110,7 +110,7 @@
         
         <li><a href="../../../../../.././blog/index.html">Blog</a></li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Usage</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Usage</a>
 <ul id="">
     <li><a href="../../../../../.././docs/usage/getting-started.html">Getting Started</a>
 </li>
@@ -124,11 +124,11 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Reference</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Reference</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/overview.html">Overview</a>
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>New Types</a>
+<li><a class="toggle-children" onclick='clickToc(this, "Types$");'>New Types</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/intersection-types.html">Intersection types</a>
 </li>
@@ -144,7 +144,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Enums</a>
+<li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Enums</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/enums/enums.html">Enumerations</a>
 </li>
@@ -154,7 +154,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Other New Features</a>
+<li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Other New Features</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/multiversal-equality.html">Multiversal Equality</a>
 </li>
@@ -176,7 +176,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Changed Features</a>
+<li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Changed Features</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/changed/lazy-vals.html">Volatile Lazy Vals</a>
 </li>
@@ -200,7 +200,7 @@
 </ul>
 
 </li>
-<li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Dropped Features</a>
+<li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Dropped Features</a>
 <ul id="">
     <li><a href="../../../../../.././docs/reference/dropped/delayed-init.html">DelayedInit</a>
 </li>
@@ -228,7 +228,7 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Contributing</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Contributing</a>
 <ul id="">
     <li><a href="../../../../../.././docs/contributing/getting-started.html">Getting Started</a>
 </li>
@@ -244,7 +244,7 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Internals</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Internals</a>
 <ul id="">
     <li><a href="../../../../../.././docs/internals/backend.html">Backend</a>
 </li>
@@ -270,7 +270,7 @@
 </ul>
 </li>
         
-        <li><a class="toggle-children" onclick='clickToc(this, "tpd$");'>Resources</a>
+        <li><a class="toggle-children" onclick='clickToc(this, "Types$");'>Resources</a>
 <ul id="">
     <li><a href="../../../../../.././docs/resources/talks.html">Talks</a></li>
 </ul>
@@ -12126,7 +12126,7 @@
 
 
     <script>
-        document.title = "Dotty Docs - UntypedSplice"
+        document.title = "Dotty Docs - isGroundAccumulator"
     </script>
 
     <div id="content-body">
@@ -12139,10 +12139,10 @@
                     
                 </span>
                 <span id="entity-kind">
-                    case class
+                    class
                 </span>
                 <span id="entity-name">
-                    UntypedSplice
+                    isGroundAccumulator
                 </span>
                 
                 
@@ -12151,12 +12151,7 @@
                     
                     <span class="keyword">extends</span>
                     
-                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Tree.html">Tree</a></span>
-                    
-                    
-                    <span class="keyword">with</span>
-                    
-                    <span class="entity-super-type">Product</span>
+                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/core/Types$/TypeAccumulator.html">TypeAccumulator</a></span>
                     
                 </div>
                 
@@ -12174,14 +12169,26 @@
                     
                     <div class="member">
                         <div class="member-title">
-                            <span class="member-name">UntypedSplice</span>
+                            <span class="member-name">isGroundAccumulator</span>
                             <span class="no-left">(</span>
                                 
                                 
+                            <span class="no-left">)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="member">
+                        <div class="member-title">
+                            <span class="member-name">isGroundAccumulator</span>
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
                                     <span class="no-left">
-                                        splice:
+                                        ctx:
                                     </span>
-                                    Tree
+                                    Context
                                     
                                 
                             <span class="no-left">)</span>
@@ -12198,9 +12205,43 @@
 
             <div id="entity-members" class="entity-section ">
                 
-                <div id="splice" class="member ">
+                <div id="ctx" class="member private">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'splice');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'ctx');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            private implicit
+                        </span>
+                        <span class="member-kind">
+                            val
+                        </span>
+                        <span class="member-name ">
+                            
+                                ctx
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-ctx">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="apply(x,tp)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'apply(x,tp)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12208,25 +12249,46 @@
                             
                         </span>
                         <span class="member-kind">
-                            val
+                            def
                         </span>
                         <span class="member-name ">
                             
-                                splice
+                                apply
                             
                         </span>
 
                         
-
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        x:
+                                    </span>
+                                    Boolean
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        tp:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
                         
 
                         
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
+
+                        
+                        <span class="no-left">: Boolean</span>
                         
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-splice">
+                        <div class="member-body-long" id ="long-body-apply(x,tp)">
                             
                         </div>
                     </div>

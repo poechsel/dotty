@@ -18204,7 +18204,7 @@ of this run.</p>
                                     <span class="no-left">
                                         fs:
                                     </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagConjunction.html">FlagConjunction</a>
                                     
                                         <span class="no-left">, </span>
                                     
@@ -18241,7 +18241,7 @@ of this run.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-is(fs,butNot)(ctx)">
-                            <p>Has this denotation one of the flags in <code>fs</code> set, whereas none of the flags
+                            <p>Has this denotation all of the flags in <code>fs</code> set, whereas none of the flags
 in <code>butNot</code> are set?</p>
 
                         </div>
@@ -18396,7 +18396,7 @@ in <code>butNot</code> are set?</p>
                                     <span class="no-left">
                                         fs:
                                     </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagConjunction.html">FlagConjunction</a>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Flags$/FlagSet.html">FlagSet</a>
                                     
                                         <span class="no-left">, </span>
                                     
@@ -18433,7 +18433,7 @@ in <code>butNot</code> are set?</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-is(fs,butNot)(ctx)">
-                            <p>Has this denotation all of the flags in <code>fs</code> set, whereas none of the flags
+                            <p>Has this denotation one of the flags in <code>fs</code> set, whereas none of the flags
 in <code>butNot</code> are set?</p>
 
                         </div>
@@ -23622,6 +23622,66 @@ whether the replaced denotation is the only one in its cycle or not.</p>
                     </div>
                 </div><!-- end member -->
                 
+                <div id="requiredMethod(name)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'requiredMethod(name)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                requiredMethod
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        name:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Names$/PreName.html">PreName</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: TermSymbol</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-requiredMethod(name)(ctx)">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="requiredMethod(name,argTypes)(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'requiredMethod(name,argTypes)(ctx)');">[+]</span>
@@ -23688,66 +23748,6 @@ whether the replaced denotation is the only one in its cycle or not.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-requiredMethod(name,argTypes)(ctx)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="requiredMethod(name)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'requiredMethod(name)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                requiredMethod
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        name:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Names$/PreName.html">PreName</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: TermSymbol</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-requiredMethod(name)(ctx)">
                             
                         </div>
                     </div>
@@ -24261,6 +24261,215 @@ Throw a <code>TypeError</code> if predicate fails to disambiguate symbol or no a
                         <div class="member-body-long" id ="long-body-resetFlag(flags)">
                             <p>Unset given flags(s) of this denotation</p>
 
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="rootTree(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'rootTree(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                rootTree
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-rootTree(ctx)">
+                            <p>If this is a top-level class and <code>-Yretain-trees</code> (or <code>-from-tasty</code>) is set.
+Returns the TypeDef tree (possibly wrapped inside PackageDefs) for this class, otherwise EmptyTree.
+This will force the info of the class.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="rootTreeContaining(id)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'rootTreeContaining(id)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                rootTreeContaining
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        id:
+                                    </span>
+                                    String
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-rootTreeContaining(id)(ctx)">
+                            <p>Same as <code>tree</code> but load tree only if <code>id == &quot;&quot;</code> or the tree might contain <code>id</code>.
+For Tasty trees this means consulting whether the name table defines <code>id</code>.
+For already loaded trees, we maintain the referenced ids in an attachment.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="rootTreeOrProvider" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'rootTreeOrProvider');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                rootTreeOrProvider
+                            
+                        </span>
+
+                        
+
+                        
+
+                        
+                        <span class="no-left">: TreeOrProvider</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-rootTreeOrProvider">
+                            
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
+                <div id="rootTreeOrProvider_=(t)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'rootTreeOrProvider_=(t)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                rootTreeOrProvider_=
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        t:
+                                    </span>
+                                    TreeOrProvider
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: Unit</span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-rootTreeOrProvider_=(t)(ctx)">
+                            
                         </div>
                     </div>
                 </div><!-- end member -->
@@ -25578,215 +25787,6 @@ given phase. Denotations are replaced while keeping the same validity periods.</
                         <div class="member-body-long" id ="long-body-transformAnnotations(f)(ctx)">
                             <p>Apply transform <code>f</code> to all annotations of this denotation</p>
 
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="tree(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'tree(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                tree
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-tree(ctx)">
-                            <p>If this is a top-level class and <code>-Yretain-trees</code> (or <code>-from-tasty</code>) is set.
-Returns the TypeDef tree (possibly wrapped inside PackageDefs) for this class, otherwise EmptyTree.
-This will force the info of the class.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="treeContaining(id)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'treeContaining(id)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                treeContaining
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        id:
-                                    </span>
-                                    String
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-treeContaining(id)(ctx)">
-                            <p>Same as <code>tree</code> but load tree only if <code>id == &quot;&quot;</code> or the tree might contain <code>id</code>.
-For Tasty trees this means consulting whether the name table defines <code>id</code>.
-For already loaded trees, we maintain the referenced ids in an attachment.</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="treeOrProvider" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'treeOrProvider');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                treeOrProvider
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: TreeOrProvider</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-treeOrProvider">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="treeOrProvider_=(t)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'treeOrProvider_=(t)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                treeOrProvider_=
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        t:
-                                    </span>
-                                    TreeOrProvider
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Unit</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-treeOrProvider_=(t)(ctx)">
-                            
                         </div>
                     </div>
                 </div><!-- end member -->

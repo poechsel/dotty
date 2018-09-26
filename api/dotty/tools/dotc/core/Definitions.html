@@ -15920,40 +15920,6 @@ Symbol
                     </div>
                 </div><!-- end member -->
                 
-                <div id="ImplicitScrutineeTypeSym" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'ImplicitScrutineeTypeSym');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            lazy
-                        </span>
-                        <span class="member-kind">
-                            val
-                        </span>
-                        <span class="member-name ">
-                            
-                                ImplicitScrutineeTypeSym
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Symbol</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-ImplicitScrutineeTypeSym">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="IndexOutOfBoundsException" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'IndexOutOfBoundsException');">[+]</span>
@@ -25707,40 +25673,6 @@ Symbol
                     </div>
                 </div><!-- end member -->
                 
-                <div id="ImplicitScrutineeTypeRef" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'ImplicitScrutineeTypeRef');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                ImplicitScrutineeTypeRef
-                            
-                        </span>
-
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../.././api/dotty/tools/dotc/core/Types$/TypeRef.html">TypeRef</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-ImplicitScrutineeTypeRef">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="InlineParamAnnot(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'InlineParamAnnot(ctx)');">[+]</span>
@@ -31630,6 +31562,79 @@ TermSymbol
                     </div>
                 </div><!-- end member -->
                 
+                <div id="adjustForTuple(cls,tparams,parents)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'adjustForTuple(cls,tparams,parents)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                adjustForTuple
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        cls:
+                                    </span>
+                                    ClassSymbol
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        tparams:
+                                    </span>
+                                    List
+<span class="no-left no-right">[</span>
+TypeSymbol
+<span class="no-left">]</span>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        parents:
+                                    </span>
+                                    List
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+<span class="no-left">]</span>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: List
+<span class="no-left no-right">[</span>
+<a href="../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-adjustForTuple(cls,tparams,parents)">
+                            <p>If <code>cls</code> is Tuple1..Tuple22, add the corresponding *: type as last parent to <code>parents</code></p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="asImplicitFunctionType(tp)(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'asImplicitFunctionType(tp)(ctx)');">[+]</span>
@@ -32812,55 +32817,6 @@ or NoType if none exists. The following types are considered as underlying types
 - ErasedFunctionN becomes Function0
 - ImplicitErasedFunctionN becomes Function0
 - anything else becomes a NoType</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="fixTupleCompleter(cls)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'fixTupleCompleter(cls)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                fixTupleCompleter
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        cls:
-                                    </span>
-                                    ClassSymbol
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: Unit</span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-fixTupleCompleter(cls)">
-                            <p>Add a <code>Tuple</code> as a parent to <code>Unit</code>.
-Add the right <code>*:</code> instance as a parent to Tuple1..Tuple22</p>
 
                         </div>
                     </div>

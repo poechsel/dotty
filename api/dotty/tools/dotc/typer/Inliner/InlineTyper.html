@@ -12151,7 +12151,7 @@
                     
                     <span class="keyword">extends</span>
                     
-                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/typer/Typer.html">Typer</a></span>
+                    <span class="entity-super-type"><a href="../../../../../.././api/dotty/tools/dotc/typer/ReTyper.html">ReTyper</a></span>
                     
                 </div>
                 
@@ -12388,6 +12388,75 @@ Block node.</p>
                     </div>
                 </div><!-- end member -->
                 
+                <div id="typedIdent(tree,pt)(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'typedIdent(tree,pt)(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            override
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                typedIdent
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                
+                                    <span class="no-left">
+                                        tree:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Ident">Ident</a>
+                                    
+                                        <span class="no-left">, </span>
+                                    
+                                
+                                    <span class="">
+                                        pt:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-typedIdent(tree,pt)(ctx)">
+                            <p>Attribute an identifier consisting of a simple name or wildcard</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="typedIf(tree,pt)(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'typedIf(tree,pt)(ctx)');">[+]</span>
@@ -12456,90 +12525,6 @@ Block node.</p>
                     </div>
                 </div><!-- end member -->
                 
-                <div id="typedMatchFinish(tree,sel,selType,pt)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'typedMatchFinish(tree,sel,selType,pt)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                typedMatchFinish
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Match">Match</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        sel:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        selType:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
-                                    
-                                        <span class="no-left">, </span>
-                                    
-                                
-                                    <span class="">
-                                        pt:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Types$/Type.html">Type</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-typedMatchFinish(tree,sel,selType,pt)(ctx)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
                 <div id="typedSelect(tree,pt)(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button " onclick="toggleMemberBody(this, 'typedSelect(tree,pt)(ctx)');">[+]</span>
@@ -12603,66 +12588,6 @@ Block node.</p>
 
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-typedSelect(tree,pt)(ctx)">
-                            
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="typedTypedSplice(tree)(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'typedTypedSplice(tree)(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            override
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                typedTypedSplice
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                
-                                    <span class="no-left">
-                                        tree:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/ast/untpd$/TypedSplice.html">TypedSplice</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: <a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-typedTypedSplice(tree)(ctx)">
                             
                         </div>
                     </div>

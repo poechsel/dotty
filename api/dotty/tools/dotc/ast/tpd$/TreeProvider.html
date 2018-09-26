@@ -12217,9 +12217,9 @@
                     </div>
                 </div><!-- end member -->
                 
-                <div id="computeTrees(ctx)" class="member protected">
+                <div id="computeRootTrees(ctx)" class="member protected">
                     <div class="member-title">
-                        <span class="expand-button " onclick="toggleMemberBody(this, 'computeTrees(ctx)');">[+]</span>
+                        <span class="expand-button " onclick="toggleMemberBody(this, 'computeRootTrees(ctx)');">[+]</span>
                         <span class="member-annotations">
                             
                         </span>
@@ -12231,7 +12231,7 @@
                         </span>
                         <span class="member-name ">
                             
-                                computeTrees
+                                computeRootTrees
                             
                         </span>
 
@@ -12263,7 +12263,7 @@
                     </div><!-- end member-title -->
 
                     <div class="member-body">
-                        <div class="member-body-long" id ="long-body-computeTrees(ctx)">
+                        <div class="member-body-long" id ="long-body-computeRootTrees(ctx)">
                             
                         </div>
                     </div>
@@ -12380,6 +12380,59 @@
                     </div>
                 </div><!-- end member -->
                 
+                <div id="rootTrees(ctx)" class="member ">
+                    <div class="member-title">
+                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'rootTrees(ctx)');">[+]</span>
+                        <span class="member-annotations">
+                            
+                        </span>
+                        <span class="member-modifiers">
+                            
+                        </span>
+                        <span class="member-kind">
+                            def
+                        </span>
+                        <span class="member-name ">
+                            
+                                rootTrees
+                            
+                        </span>
+
+                        
+                            
+                            <span class="no-left">(</span>
+                                
+                                <span class="no-left keyword">implicit</span>
+                                
+                                
+                                    <span class="no-left">
+                                        ctx:
+                                    </span>
+                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
+                                    
+                                
+                            <span class="no-left">)</span>
+                            
+                        
+
+                        
+
+                        
+                        <span class="no-left">: List
+<span class="no-left no-right">[</span>
+<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
+<span class="no-left">]</span></span>
+                        
+                    </div><!-- end member-title -->
+
+                    <div class="member-body">
+                        <div class="member-body-long" id ="long-body-rootTrees(ctx)">
+                            <p>Get trees defined by this provider. Cache them if -Yretain-trees is set.</p>
+
+                        </div>
+                    </div>
+                </div><!-- end member -->
+                
                 <div id="tree(ctx)" class="member ">
                     <div class="member-title">
                         <span class="expand-button visible" onclick="toggleMemberBody(this, 'tree(ctx)');">[+]</span>
@@ -12425,59 +12478,6 @@
                     <div class="member-body">
                         <div class="member-body-long" id ="long-body-tree(ctx)">
                             <p>Get first tree defined by this provider, or EmptyTree if none exists</p>
-
-                        </div>
-                    </div>
-                </div><!-- end member -->
-                
-                <div id="trees(ctx)" class="member ">
-                    <div class="member-title">
-                        <span class="expand-button visible" onclick="toggleMemberBody(this, 'trees(ctx)');">[+]</span>
-                        <span class="member-annotations">
-                            
-                        </span>
-                        <span class="member-modifiers">
-                            
-                        </span>
-                        <span class="member-kind">
-                            def
-                        </span>
-                        <span class="member-name ">
-                            
-                                trees
-                            
-                        </span>
-
-                        
-                            
-                            <span class="no-left">(</span>
-                                
-                                <span class="no-left keyword">implicit</span>
-                                
-                                
-                                    <span class="no-left">
-                                        ctx:
-                                    </span>
-                                    <a href="../../../../../.././api/dotty/tools/dotc/core/Contexts$/Context.html">Context</a>
-                                    
-                                
-                            <span class="no-left">)</span>
-                            
-                        
-
-                        
-
-                        
-                        <span class="no-left">: List
-<span class="no-left no-right">[</span>
-<a href="../../../../../.././api/dotty/tools/dotc/ast/Trees$/Instance.html#Tree">Tree</a>
-<span class="no-left">]</span></span>
-                        
-                    </div><!-- end member-title -->
-
-                    <div class="member-body">
-                        <div class="member-body-long" id ="long-body-trees(ctx)">
-                            <p>Get trees defined by this provider. Cache them if -Yretain-trees is set.</p>
 
                         </div>
                     </div>
