@@ -60,7 +60,7 @@ trait FlagSet {
   def isFieldAccessor: Boolean
 
   /** Is this symbol a getter for case class parameter */
-  def isCaseAcessor: Boolean
+  def isCaseAccessor: Boolean
 
   /** Is this symbol a type parameter marked as covariant `+` */
   def isCovariant: Boolean
@@ -82,4 +82,16 @@ trait FlagSet {
 
   /** Is this symbol a parameter accessor */
   def isParamAccessor: Boolean
+
+  def isJavaDefined: Boolean
+
+  def isEnum: Boolean
+
+  def isModuleClass: Boolean
+
+  def isPrivateLocal: Boolean
+
+  def isPackage: Boolean
+
+  def isImplClass: Boolean
 }

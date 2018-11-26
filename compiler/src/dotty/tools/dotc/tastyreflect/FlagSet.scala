@@ -24,7 +24,7 @@ class FlagSet(flags: Flags.FlagSet) extends scala.tasty.reflect.FlagSet {
   def isArtifact: Boolean = flags.is(Artifact)
   def isMutable: Boolean = flags.is(Mutable)
   def isFieldAccessor: Boolean = flags.is(Accessor)
-  def isCaseAcessor: Boolean = flags.is(CaseAccessor)
+  def isCaseAccessor: Boolean = flags.is(CaseAccessor)
   def isCovariant: Boolean = flags.is(Covariant)
   def isContravariant: Boolean = flags.is(Contravariant)
   def isScala2X: Boolean = flags.is(Scala2x)
@@ -32,6 +32,12 @@ class FlagSet(flags: Flags.FlagSet) extends scala.tasty.reflect.FlagSet {
   def isStable: Boolean = flags.is(Stable)
   def isParam: Boolean = flags.is(Param)
   def isParamAccessor: Boolean = flags.is(ParamAccessor)
+  def isJavaDefined: Boolean = flags.is(JavaDefined)
+  def isEnum: Boolean = flags.is(Enum)
+  def isModuleClass: Boolean = flags.is(ModuleClass)
+  def isPrivateLocal: Boolean = flags.is(PrivateLocal)
+  def isPackage: Boolean = flags.is(Package)
+  def isImplClass: Boolean = flags.is(ImplClass)
 
   override def toString: String = {
     val flags = List.newBuilder[String]
@@ -54,7 +60,7 @@ class FlagSet(flags: Flags.FlagSet) extends scala.tasty.reflect.FlagSet {
     if (isArtifact) flags += "artifact"
     if (isMutable) flags += "mutable"
     if (isFieldAccessor) flags += "accessor"
-    if (isCaseAcessor) flags += "caseAccessor"
+    if (isCaseAccessor) flags += "caseAccessor"
     if (isCovariant) flags += "covariant"
     if (isContravariant) flags += "contravariant"
     if (isScala2X) flags += "scala2x"
@@ -62,6 +68,12 @@ class FlagSet(flags: Flags.FlagSet) extends scala.tasty.reflect.FlagSet {
     if (isStable) flags += "stable"
     if (isParam) flags += "param"
     if (isParamAccessor) flags += "paramAccessor"
+    if (isJavaDefined) flags += "javaDefined"
+    if (isEnum) flags += "enum"
+    if (isModuleClass) flags += "module class"
+    if (isPrivateLocal) flags += "private[this]"
+    if (isPackage) flags += "package"
+    if (isImplClass) flags += "implclass"
     flags.result().mkString("<", ",", ">")
   }
 

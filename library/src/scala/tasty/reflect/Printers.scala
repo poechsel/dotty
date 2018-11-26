@@ -1080,7 +1080,7 @@ trait Printers
                   }
                   printedPrefix  |= printProtectedOrPrivate(vdef)
                   if (vdef.symbol.flags.isMutable) this += highlightValDef("var ", color)
-                  else if (printedPrefix || !vdef.symbol.flags.isCaseAcessor) this += highlightValDef("val ", color)
+                  else if (printedPrefix || !vdef.symbol.flags.isCaseAccessor) this += highlightValDef("val ", color)
                   else this // val not explicitly needed
                 }
             }
