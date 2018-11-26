@@ -9,6 +9,7 @@ trait TypeOrBoundsOpsImpl extends scala.tasty.reflect.TypeOrBoundsOps with CoreI
   def TypeDeco(tpe: Type): TypeAPI = new TypeAPI {
     def =:=(other: Type)(implicit ctx: Context): Boolean = tpe =:= other
     def <:<(other: Type)(implicit ctx: Context): Boolean = tpe <:< other
+    def typeSymbol(implicit ctx: Context): Symbol = tpe.typeSymbol
   }
 
   def MethodTypeDeco(tpe: MethodType): MethodTypeAPI = new MethodTypeAPI {
