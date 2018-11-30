@@ -9,6 +9,7 @@ trait TypeOrBoundsOps extends Core {
     def =:=(other: Type)(implicit ctx: Context): Boolean
     def <:<(other: Type)(implicit ctx: Context): Boolean
     def typeSymbol(implicit ctx: Context): Symbol
+    //def pos(implicit ctx: Context): Position
   }
   implicit def TypeDeco(tpe: Type): TypeAPI
 
