@@ -90,6 +90,8 @@ class SemanticdbConsumer extends TastyConsumer {
           case _                  => false
         }
 
+        def isDefaultGetter: Boolean = symbol.name.contains(tpnme.DEFAULT_GETTER.toString)
+
         def isParameter: Boolean = symbol.flags.isParam
 
         def isObject: Boolean = symbol.flags.isObject
@@ -221,6 +223,7 @@ class SemanticdbConsumer extends TastyConsumer {
         def isUseless(implicit ctx: Context): Boolean = {
           symbol == NoSymbol ||
           //symbol.isInitChild ||
+          symbol.isDefaultGetter ||
           symbol.isWildCard ||
           symbol.isAnonymousClass ||
           symbol.isAnonymousFunction ||
@@ -302,7 +305,7 @@ class SemanticdbConsumer extends TastyConsumer {
                 case _ =>
                   d.Term(symbol.name)
               }
-            } else if (symbol.isMethod) {
+            } else if (symbol.isMethod || symbol.isUsefulField) {
               d.Method(symbol.name,
                        disimbiguate(previous_symbol + symbol.name, symbol))
             } else if (symbol.isTypeParameter) {
@@ -357,23 +360,28 @@ class SemanticdbConsumer extends TastyConsumer {
           case _ =>
             symbolToSymbolString(symbol)
         }
-
         if (symbol_path == "" || symbol.isUselessOccurrence) return
-        println(symbol_path, range, symbol.owner.flags)
 
         val key = (symbol_path, range)
-        if (!is_global || !(symbolPathsMap.contains(key))) {
-          if (is_global) {
-            symbolPathsMap += key
-          }
-          occurrences =
-            occurrences :+
-              s.SymbolOccurrence(
-                Some(range),
-                symbol_path,
-                type_symbol
-              )
+        // TODO: refactor the following
+
+        // this is to avoid duplicates symbols
+        // For example, when we define a class as: `class foo(x: Int)`,
+        // dotty will generate a ValDef for the x, but the x will also
+        // be present in the constructor, thus making a double definition
+        if (symbolPathsMap.contains(key)) return
+        if (is_global) {
+          symbolPathsMap += key
+          println("duplicates", key)
         }
+        println(symbol_path, range, symbol.owner.flags, is_global)
+        occurrences =
+          occurrences :+
+            s.SymbolOccurrence(
+              Some(range),
+              symbol_path,
+              type_symbol
+            )
       }
 
       val reserverdFunctions: List[String] = "apply" :: "unapply" :: Nil
@@ -521,12 +529,6 @@ class SemanticdbConsumer extends TastyConsumer {
       override def traversePattern(tree: Pattern)(implicit ctx: Context): Unit = {
         tree match {
           case Pattern.Bind(name, _) => {
-            println("[bind]",
-                    tree.pos.startColumn,
-                    tree.pos.endColumn,
-                    tree.symbol,
-                    tree.symbol.pos.startColumn,
-                    tree.symbol.pos.endColumn)
             addOccurence(
               tree.symbol,
               s.SymbolOccurrence.Role.REFERENCE,
